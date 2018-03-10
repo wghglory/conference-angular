@@ -1,4 +1,30 @@
-# ConferenceAngular
+# Conference Angular
+
+## Prepare
+
+```bash
+npm install -g yarn
+npm install -g @angular/cli
+npm list -g @angular/cli --depth=0
+ng set --global packageManager yarn # Or cnpm
+```
+
+## Create Project
+
+In github, create a project with a license but no README. Github will create a initial commit automatically.
+
+```bash
+# create local project using angular-cli
+ng new conference-angular --routing --prefix app --style scss  # note we already specify to use yarn
+
+# link local to remote
+git remote add origin https://github.com/wghglory/conference-angular.git
+git rebase origin/master
+```
+
+## Docs
+
+---
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
 
