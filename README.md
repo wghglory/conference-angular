@@ -24,6 +24,8 @@ git rebase origin/master
 
 ## Docs
 
+* [Setup CI](docs/CI.md)
+
 ---
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
