@@ -22,6 +22,12 @@ git remote add origin https://github.com/wghglory/conference-angular.git
 git rebase origin/master
 ```
 
+## angular-cli commands
+
+```bash
+ng g c navbar -d
+```
+
 ## Docs
 
 * [Setup CI](docs/CI.md)
