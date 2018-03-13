@@ -1,0 +1,31 @@
+{
+  "name": "mock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "pkill -f index.ts; exit 0",
+    "start": "nodemon -q -w src -e ts -x ts-node -F src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "private": true,
+  "dependencies": {
+    "kcors": "^2.2.1",
+    "koa": "^2.5.0",
+    "koa-body": "^2.5.0",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.8.1",
+    "nopt": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/kcors": "^2.2.2",
+    "@types/koa": "^2.0.44",
+    "@types/koa-router": "^7.0.27",
+    "@types/koa-session": "^5.7.1",
+    "@types/node": "^6.0.84",
+    "@types/nopt": "^3.0.29",
+    "nodemon": "^1.17.1",
+    "ts-node": "^3.2.1"
+  }
+}
