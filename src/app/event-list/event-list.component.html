@@ -2,7 +2,7 @@
   Upcoming Angular 2 Events
 </h1>
 <div class="row">
-  <div class="col-sm-4">
+  <div class="col-sm-4" *ngFor="let event of events">
     <div class="card bg-secondary pointer">
       <div class="card-body">
         <h2 class="card-title">Event: {{event.name}}</h2>
@@ -15,13 +15,4 @@
       </div>
     </div>
   </div>
-</div>
-
-<div>
-  <h3>Test Template variable #</h3>
-  <h5>Note Node Variable must be existed. </h5>
-  <h5>ngIf, ngFor get data from server, inside the condition give a node #, that node
-    may not exist, In this case use "?"</h5>
-  <button (click)="addressVar?.getAuthor()" class="btn btn-warning">Test template variable</button>
-  <p>{{addressVar?.author}}</p>
 </div>

@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+
+import { IEvent } from './event.model';
+
+import { EventService } from './event.service';
 
 @Component({
   selector: 'app-event-list',
@@ -6,19 +11,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./event-list.component.scss'],
 })
 export class EventListComponent implements OnInit {
-  constructor() {}
+  constructor(private eventService: EventService) {}
 
-  event = {
-    name: 'ngConf 2025',
-    date: '3/1/2025',
-    time: '8am',
-    price: '599',
-    location: { address: '123 Main St', city: 'Salt Lake City, UT', country: 'USA' },
-  };
+  events: IEvent[];
 
-  fire(dataFromChild) {
-    console.log(dataFromChild);
+  ngOnInit() {
+    this.eventService.getEvents().subscribe((res) => (this.events = res));
   }
-
-  ngOnInit() {}
 }
