@@ -10,12 +10,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { EventListComponent } from './event-list/event-list.component';
-import { EventAddressComponent } from './event-list/event-address/event-address.component';
+import { EventThumbnailComponent } from './event-list/event-thumbnail/event-thumbnail.component';
 
 import { EventService } from './event-list/event.service';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, EventListComponent, EventAddressComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    EventListComponent,
+    EventThumbnailComponent,
+  ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
   providers: [EventService],
   bootstrap: [AppComponent],

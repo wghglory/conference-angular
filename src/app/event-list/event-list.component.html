@@ -3,16 +3,6 @@
 </h1>
 <div class="row">
   <div class="col-sm-4" *ngFor="let event of events">
-    <div class="card bg-secondary pointer">
-      <div class="card-body">
-        <h2 class="card-title">Event: {{event.name}}</h2>
-        <div class="card-text">
-          <div>Price: ${{event.price}}</div>
-          <div>Date: {{event.date}}</div>
-          <div>Time: {{event.time}}</div>
-          <app-event-address [address]="event.location" (buttonClick$)="fire($event)" #addressVar></app-event-address>
-        </div>
-      </div>
-    </div>
+      <app-event-thumbnail [event]="event"></app-event-thumbnail>
   </div>
 </div>

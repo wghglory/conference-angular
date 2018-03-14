@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EventAddressComponent } from './event-address.component';
+import { EventThumbnailComponent } from './event-thumbnail.component';
 
-describe('EventAddressComponent', () => {
-  let component: EventAddressComponent;
-  let fixture: ComponentFixture<EventAddressComponent>;
+describe('EventThumbnailComponent', () => {
+  let component: EventThumbnailComponent;
+  let fixture: ComponentFixture<EventThumbnailComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EventAddressComponent ]
+      declarations: [ EventThumbnailComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EventAddressComponent);
+    fixture = TestBed.createComponent(EventThumbnailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
