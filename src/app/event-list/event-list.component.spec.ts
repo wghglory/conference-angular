@@ -6,6 +6,7 @@ import { EventListComponent } from './event-list.component';
 import { EventThumbnailComponent } from './event-thumbnail/event-thumbnail.component';
 
 import { EventService } from './event.service';
+import { TOASTR_TOKEN } from './../shared/toastr.service';
 
 describe('EventListComponent', () => {
   let component: EventListComponent;
@@ -16,7 +17,7 @@ describe('EventListComponent', () => {
       TestBed.configureTestingModule({
         imports: [HttpClientTestingModule],
         declarations: [EventListComponent, EventThumbnailComponent],
-        providers: [EventService],
+        providers: [EventService, { provide: TOASTR_TOKEN, useValue: {} }],
       }).compileComponents();
     }),
   );

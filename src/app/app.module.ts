@@ -14,6 +14,9 @@ import { EventThumbnailComponent } from './event-list/event-thumbnail/event-thum
 
 import { EventService } from './event-list/event.service';
 
+import { TOASTR_TOKEN, Toastr } from './shared/toastr.service';
+export const toastr: Toastr = window['toastr'];
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +25,7 @@ import { EventService } from './event-list/event.service';
     EventThumbnailComponent,
   ],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
-  providers: [EventService],
+  providers: [EventService, { provide: TOASTR_TOKEN, useValue: toastr }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
