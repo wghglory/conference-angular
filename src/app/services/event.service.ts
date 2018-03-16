@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
 
-import { IEvent } from './event.model';
+import { IEvent } from '../models';
 
 @Injectable()
 export class EventService {

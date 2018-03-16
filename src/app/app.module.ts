@@ -12,7 +12,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { EventThumbnailComponent } from './event-list/event-thumbnail/event-thumbnail.component';
 
-import { EventService } from './event-list/event.service';
+import { EventService } from './services';
 
 import { TOASTR_TOKEN, Toastr } from './shared/toastr.service';
 export const toastr: Toastr = window['toastr'];

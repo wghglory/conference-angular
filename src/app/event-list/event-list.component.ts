@@ -1,9 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { IEvent } from './event.model';
+import { IEvent } from '../models/';
 
-import { EventService } from './event.service';
+import { EventService } from '../services';
 
 import { TOASTR_TOKEN, Toastr } from './../shared/toastr.service';
 

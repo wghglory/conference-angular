@@ -5,7 +5,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { EventListComponent } from './event-list.component';
 import { EventThumbnailComponent } from './event-thumbnail/event-thumbnail.component';
 
-import { EventService } from './event.service';
+import { EventService } from '../services';
 import { TOASTR_TOKEN } from './../shared/toastr.service';
 
 describe('EventListComponent', () => {
