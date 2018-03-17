@@ -13,6 +13,9 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { EventThumbnailComponent } from './event-list/event-thumbnail/event-thumbnail.component';
+import { EventDetailComponent } from './event-detail/event-detail.component';
+import { EventCreateComponent } from './event-create/event-create.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 import { EventService } from './services';
 
@@ -25,6 +28,9 @@ export const toastr: Toastr = window['toastr'];
     NavbarComponent,
     EventListComponent,
     EventThumbnailComponent,
+    NotFoundComponent,
+    EventDetailComponent,
+    EventCreateComponent,
   ],
   imports: [BrowserModule, HttpClientModule, SpinnerModule, AppRoutingModule],
   providers: [EventService, { provide: TOASTR_TOKEN, useValue: toastr }],

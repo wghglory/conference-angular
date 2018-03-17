@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { SpinnerModule } from './../shared/spinner/spinner.module';
 
 import { EventListComponent } from './event-list.component';
 import { EventThumbnailComponent } from './event-thumbnail/event-thumbnail.component';
@@ -15,7 +16,7 @@ describe('EventListComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [HttpClientTestingModule],
+        imports: [HttpClientTestingModule, SpinnerModule],
         declarations: [EventListComponent, EventThumbnailComponent],
         providers: [EventService, { provide: TOASTR_TOKEN, useValue: {} }],
       }).compileComponents();
