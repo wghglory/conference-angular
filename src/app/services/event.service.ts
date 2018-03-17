@@ -11,4 +11,12 @@ export class EventService {
   getEvents() {
     return this.http.get<IEvent[]>(`/api/events`);
   }
+
+  getEvent(id: number) {
+    return this.http.get<IEvent>(`/api/events/${id}`);
+  }
+
+  saveEvent(event: IEvent) {
+    return this.http.post<IEvent>(`/api/events`, event);
+  }
 }

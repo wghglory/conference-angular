@@ -18,6 +18,11 @@ if (`******************* events ********************`) {
       ctx.status = 204;
     })
 
+    .get('/:id', async (ctx: any) => {
+      await sleep(1);
+      ctx.body = EVENTS.find((x) => x.id === +ctx.params.id);
+    })
+
     .get('/', async (ctx: any) => {
       await sleep(1);
 
