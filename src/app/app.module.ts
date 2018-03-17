@@ -5,6 +5,8 @@ import { NgModule } from '@angular/core';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import { SpinnerModule } from './shared/spinner/spinner.module';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -24,7 +26,7 @@ export const toastr: Toastr = window['toastr'];
     EventListComponent,
     EventThumbnailComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, SpinnerModule, AppRoutingModule],
   providers: [EventService, { provide: TOASTR_TOKEN, useValue: toastr }],
   bootstrap: [AppComponent],
 })
