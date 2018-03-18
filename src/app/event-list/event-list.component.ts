@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { IEvent } from '../models/';
 
@@ -16,6 +16,7 @@ export class EventListComponent implements OnInit {
   constructor(
     private eventService: EventService,
     @Inject(TOASTR_TOKEN) private toastr: Toastr,
+    private route: ActivatedRoute,
     private router: Router,
   ) {}
 
@@ -27,6 +28,9 @@ export class EventListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.eventService.getEvents().subscribe((res) => (this.events = res));
+    // this.eventService.getEvents().subscribe((res) => (this.events = res));
+
+    // use resolver
+    this.events = this.route.snapshot.data['events'];
   }
 }

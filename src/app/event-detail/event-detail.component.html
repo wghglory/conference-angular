@@ -1,3 +1,5 @@
+<!-- v1: Component calls service for data retrieving
+
 <ng-template #loading>
   <app-spinner [fill]="'#ffc107'" [height]="200" [width]="200" [isCenter]="false"></app-spinner>
 </ng-template>
@@ -25,6 +27,37 @@
         <strong>Address:</strong>
         <br /> {{event?.location?.address}}
         <br /> {{event?.location?.city}}, {{event?.location?.country}}
+      </address>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- v2: Use resolver for data retrieving, app.component is responsible for loading -->
+
+<div class="container" *ngIf="event$ | async as event;">
+  <img [src]="event.imageUrl" [alt]="event.name" class="event-img">
+
+  <div class="row">
+    <div class="col-md-11">
+      <h2>{{event.name}} </h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div>
+        <strong>Date:</strong> {{event.date}}</div>
+      <div>
+        <strong>Time:</strong> {{event.time}}</div>
+      <div>
+        <strong>Price:</strong> ${{event.price}}</div>
+    </div>
+    <div class="col-md-6">
+      <address>
+        <strong>Address:</strong>
+        <br /> {{event.location?.address}}
+        <br /> {{event.location?.city}}, {{event.location?.country}}
       </address>
     </div>
   </div>

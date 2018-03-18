@@ -9,6 +9,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 import { UserModule } from './user/user.module';
 
+import { EventListResolverService } from './event-list/event-list-resolver.service';
+import { EventDetailResolverService } from './event-detail/event-detail-resolver.service';
+
 // AOT builds: have to export a function. Cannot directly write lambda function down
 export function lazyLoadingUserModule() {
   return UserModule;
@@ -17,8 +20,17 @@ export function lazyLoadingUserModule() {
 const routes: Routes = [
   // order matters
   { path: 'events/create', component: EventCreateComponent },
-  { path: 'events', component: EventListComponent, pathMatch: 'full' },
-  { path: 'events/:id', component: EventDetailComponent },
+  {
+    path: 'events',
+    component: EventListComponent,
+    pathMatch: 'full',
+    resolve: { events: EventListResolverService },
+  },
+  {
+    path: 'events/:id',
+    component: EventDetailComponent,
+    resolve: { event: EventDetailResolverService },
+  },
   { path: '', redirectTo: 'events', pathMatch: 'full' },
   { path: 'user', loadChildren: lazyLoadingUserModule }, // lazy loading
   // { path: 'user', loadChildren: './user/user.module#UserModule' }, // lazy loading, @angular-cli@1.7.2|3 bug

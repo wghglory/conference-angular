@@ -22,6 +22,9 @@ import { EventService } from './services';
 import { TOASTR_TOKEN, Toastr } from './shared/toastr.service';
 export const toastr: Toastr = window['toastr'];
 
+import { EventListResolverService } from './event-list/event-list-resolver.service';
+import { EventDetailResolverService } from './event-detail/event-detail-resolver.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +36,12 @@ export const toastr: Toastr = window['toastr'];
     EventCreateComponent,
   ],
   imports: [BrowserModule, HttpClientModule, SpinnerModule, AppRoutingModule],
-  providers: [EventService, { provide: TOASTR_TOKEN, useValue: toastr }],
+  providers: [
+    EventService,
+    { provide: TOASTR_TOKEN, useValue: toastr },
+    EventListResolverService,
+    EventDetailResolverService,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

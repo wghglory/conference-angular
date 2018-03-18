@@ -17,6 +17,9 @@ export class EventDetailComponent implements OnInit {
   event$: Observable<IEvent>;
 
   ngOnInit() {
-    this.event$ = this.eventService.getEvent(+this.route.snapshot.paramMap.get('id'));
+    // this.event$ = this.eventService.getEvent(+this.route.snapshot.paramMap.get('id'));
+
+    // use resolver
+    this.event$ = Observable.of(this.route.snapshot.data['event']);
   }
 }

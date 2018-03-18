@@ -1,4 +1,7 @@
 <app-navbar></app-navbar>
+
+<app-spinner *ngIf="loading" [fill]="'#ffc107'" [height]="200" [width]="200" [isCenter]="true"></app-spinner>
+
 <div class="container py-4">
   <router-outlet></router-outlet>
 </div>

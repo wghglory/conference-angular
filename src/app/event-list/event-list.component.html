@@ -1,3 +1,5 @@
+<!-- v1: Component calls service for data retrieving
+
 <h1>
   Upcoming Angular 2 Events
 </h1>
@@ -8,7 +10,19 @@
 
 <div class="row" *ngIf="events; else loading">
   <div class="col-sm-4" *ngFor="let event of events; index as i;">
-    <!-- <app-event-thumbnail [event]="event" (click)="onEventClick(event)" [routerLink]="['/events', event.id]"></app-event-thumbnail> -->
+    <app-event-thumbnail [event]="event" (click)="onEventClick(event)" [routerLink]="['/events', event.id]"></app-event-thumbnail>
+  </div>
+</div> -->
+
+
+<!-- v2: Use resolver for data retrieving, app.component is responsible for loading -->
+
+<h1>
+  Upcoming Angular 2 Events
+</h1>
+
+<div class="row">
+  <div class="col-sm-4" *ngFor="let event of events; index as i;">
     <app-event-thumbnail [event]="event" (click)="onEventClick(event)"></app-event-thumbnail>
   </div>
 </div>
