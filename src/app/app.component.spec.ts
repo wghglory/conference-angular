@@ -1,16 +1,20 @@
 import { TestBed, async } from '@angular/core/testing';
 
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { SpinnerModule } from './shared/spinner/spinner.module';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 
+import { AuthService } from './services/auth.service';
+
 describe('AppComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [RouterTestingModule, SpinnerModule],
+        imports: [RouterTestingModule, HttpClientTestingModule, SpinnerModule],
+        providers: [AuthService],
         declarations: [AppComponent, NavbarComponent],
       }).compileComponents();
     }),

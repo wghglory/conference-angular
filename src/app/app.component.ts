@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
+import { Component, ChangeDetectorRef } from '@angular/core';
 
 import {
   Router,
@@ -17,15 +18,22 @@ import {
 export class AppComponent {
   loading = true;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private cdr: ChangeDetectorRef,
+  ) {
     router.events.subscribe((routerEvent: Event) => {
       this.checkRouterEvent(routerEvent);
     });
+
+    authService.checkAuthenticationStatus();
   }
 
   checkRouterEvent(routerEvent: Event): void {
     if (routerEvent instanceof NavigationStart) {
       this.loading = true;
+      // this.cdr.detectChanges();
     }
 
     if (
@@ -34,6 +42,7 @@ export class AppComponent {
       routerEvent instanceof NavigationError
     ) {
       this.loading = false;
+      // this.cdr.detectChanges();
     }
   }
 }
