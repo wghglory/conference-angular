@@ -22,7 +22,12 @@ export function lazyLoadingUserModule() {
 
 const routes: Routes = [
   // order matters
-  { path: 'events/create', component: EventCreateComponent },
+  {
+    path: 'events/create',
+    component: EventCreateComponent,
+    canDeactivate: ['canDeactivateCreateEvent'],
+    // Guarding Against Route De-activation using function, canDeactivateCreateEvent is provider name which points to a function
+  },
   {
     path: 'events',
     component: EventListComponent,

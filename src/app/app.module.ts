@@ -17,17 +17,17 @@ import { EventThumbnailComponent } from './event-list/event-thumbnail/event-thum
 import { EventDetailComponent } from './event-detail/event-detail.component';
 import { EventCreateComponent } from './event-create/event-create.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LoginComponent } from './login/login.component';
+import { SessionCreateComponent } from './event-detail/session-create/session-create.component';
 
-import { EventService, AuthGuard } from './services';
-import { AuthService } from './services/auth.service';
+import { EventService, AuthGuard, AuthService } from './services';
 
 import { TOASTR_TOKEN, Toastr } from './shared/toastr.service';
 export const toastr: Toastr = window['toastr'];
 
+import { checkDirtyState } from './event-create/event-create.guard';
 import { EventListResolverService } from './event-list/event-list-resolver.service';
 import { EventDetailResolverService } from './event-detail/event-detail-resolver.service';
-import { LoginComponent } from './login/login.component';
-import { SessionCreateComponent } from './event-detail/session-create/session-create.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +52,10 @@ import { SessionCreateComponent } from './event-detail/session-create/session-cr
   providers: [
     EventService,
     { provide: TOASTR_TOKEN, useValue: toastr },
+    {
+      provide: 'canDeactivateCreateEvent',
+      useValue: checkDirtyState,
+    },
     EventListResolverService,
     EventDetailResolverService,
     AuthService,
