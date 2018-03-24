@@ -5,6 +5,7 @@ import { EventListComponent } from './event-list/event-list.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
 import { EventCreateComponent } from './event-create/event-create.component';
 
+import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { UserModule } from './user/user.module';
@@ -33,6 +34,7 @@ const routes: Routes = [
     resolve: { event: EventDetailResolverService },
   },
   { path: '', redirectTo: 'events', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
   { path: 'user', loadChildren: lazyLoadingUserModule, canActivate: [AuthGuard] }, // lazy loading
   // { path: 'user', loadChildren: './user/user.module#UserModule', canActivate: [AuthGuard] }, // lazy loading, @angular-cli@1.7.2|3 bug
   { path: '**', component: NotFoundComponent },

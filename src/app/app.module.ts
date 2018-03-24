@@ -3,6 +3,7 @@ import './shared/rxjs-operators';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { SpinnerModule } from './shared/spinner/spinner.module';
@@ -25,6 +26,7 @@ export const toastr: Toastr = window['toastr'];
 
 import { EventListResolverService } from './event-list/event-list-resolver.service';
 import { EventDetailResolverService } from './event-detail/event-detail-resolver.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -35,8 +37,15 @@ import { EventDetailResolverService } from './event-detail/event-detail-resolver
     NotFoundComponent,
     EventDetailComponent,
     EventCreateComponent,
+    LoginComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, SpinnerModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    SpinnerModule,
+    AppRoutingModule,
+  ],
   providers: [
     EventService,
     { provide: TOASTR_TOKEN, useValue: toastr },
