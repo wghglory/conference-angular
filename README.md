@@ -25,6 +25,7 @@ git rebase origin/master
 ## Docs
 
 * [Setup CI](docs/CI.md)
+* [Material Design](docs/Material.md)
 
 ---
 
