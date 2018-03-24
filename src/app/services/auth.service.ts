@@ -7,7 +7,12 @@ import { IUser } from '../models';
 @Injectable()
 export class AuthService {
   constructor(private http: HttpClient) {}
+
   currentUser: IUser;
+
+  get isAuthenticated() {
+    return !!this.currentUser;
+  }
 
   loginUser(username: string, password: string) {
     return this.http
@@ -20,10 +25,6 @@ export class AuthService {
       .catch((err) => {
         return Observable.of(false);
       });
-  }
-
-  isAuthenticated() {
-    return !!this.currentUser;
   }
 
   updateCurrentUser(firstName: string, lastName: string) {

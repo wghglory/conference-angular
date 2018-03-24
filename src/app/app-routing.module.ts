@@ -9,6 +9,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 import { UserModule } from './user/user.module';
 
+import { AuthGuard } from './services/auth.guard';
 import { EventListResolverService } from './event-list/event-list-resolver.service';
 import { EventDetailResolverService } from './event-detail/event-detail-resolver.service';
 
@@ -32,8 +33,8 @@ const routes: Routes = [
     resolve: { event: EventDetailResolverService },
   },
   { path: '', redirectTo: 'events', pathMatch: 'full' },
-  { path: 'user', loadChildren: lazyLoadingUserModule }, // lazy loading
-  // { path: 'user', loadChildren: './user/user.module#UserModule' }, // lazy loading, @angular-cli@1.7.2|3 bug
+  { path: 'user', loadChildren: lazyLoadingUserModule, canActivate: [AuthGuard] }, // lazy loading
+  // { path: 'user', loadChildren: './user/user.module#UserModule', canActivate: [AuthGuard] }, // lazy loading, @angular-cli@1.7.2|3 bug
   { path: '**', component: NotFoundComponent },
 ];
 

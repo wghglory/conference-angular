@@ -17,7 +17,7 @@ import { EventDetailComponent } from './event-detail/event-detail.component';
 import { EventCreateComponent } from './event-create/event-create.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
-import { EventService } from './services';
+import { EventService, AuthGuard } from './services';
 import { AuthService } from './services/auth.service';
 
 import { TOASTR_TOKEN, Toastr } from './shared/toastr.service';
@@ -43,6 +43,7 @@ import { EventDetailResolverService } from './event-detail/event-detail-resolver
     EventListResolverService,
     EventDetailResolverService,
     AuthService,
+    AuthGuard,
   ],
   bootstrap: [AppComponent],
 })
