@@ -3,7 +3,7 @@ import './shared/rxjs-operators';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { SpinnerModule } from './shared/spinner/spinner.module';
@@ -43,6 +43,7 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     SpinnerModule,
     AppRoutingModule,
   ],
