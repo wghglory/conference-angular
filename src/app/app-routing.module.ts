@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { EventListComponent } from './event-list/event-list.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
 import { EventCreateComponent } from './event-create/event-create.component';
+import { SessionCreateComponent } from './event-detail/session-create/session-create.component';
 
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -32,6 +33,10 @@ const routes: Routes = [
     path: 'events/:id',
     component: EventDetailComponent,
     resolve: { event: EventDetailResolverService },
+  },
+  {
+    path: 'events/session/create',
+    component: SessionCreateComponent,
   },
   { path: '', redirectTo: 'events', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },

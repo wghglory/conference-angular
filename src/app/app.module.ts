@@ -27,6 +27,7 @@ export const toastr: Toastr = window['toastr'];
 import { EventListResolverService } from './event-list/event-list-resolver.service';
 import { EventDetailResolverService } from './event-detail/event-detail-resolver.service';
 import { LoginComponent } from './login/login.component';
+import { SessionCreateComponent } from './event-detail/session-create/session-create.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { LoginComponent } from './login/login.component';
     EventDetailComponent,
     EventCreateComponent,
     LoginComponent,
+    SessionCreateComponent,
   ],
   imports: [
     BrowserModule,

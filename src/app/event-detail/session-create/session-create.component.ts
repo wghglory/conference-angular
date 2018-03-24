@@ -1,0 +1,62 @@
+import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+import { restrictedWords } from './restricted-words.validator';
+
+import { ISession } from '../../models';
+
+@Component({
+  selector: 'app-session-create',
+  templateUrl: './session-create.component.html',
+  styleUrls: ['./session-create.component.scss'],
+})
+export class SessionCreateComponent implements OnInit {
+  constructor() {}
+
+  newSessionForm: FormGroup;
+  name: FormControl;
+  presenter: FormControl;
+  duration: FormControl;
+  level: FormControl;
+  abstract: FormControl;
+
+  ngOnInit() {
+    this.name = new FormControl('', Validators.required);
+    this.presenter = new FormControl('', Validators.required);
+    this.duration = new FormControl('', Validators.required);
+    this.level = new FormControl('', Validators.required);
+    this.abstract = new FormControl('', [
+      Validators.required,
+      Validators.maxLength(400),
+      restrictedWords(['foo', 'bar']),
+    ]);
+
+    this.newSessionForm = new FormGroup({
+      name: this.name,
+      presenter: this.presenter,
+      duration: this.duration,
+      level: this.level,
+      abstract: this.abstract,
+    });
+  }
+
+  saveSession(formValues) {
+    // console.log(formValues);
+
+    const session: ISession = {
+      id: undefined,
+      name: formValues.name,
+      duration: +formValues.duration, // convert
+      presenter: formValues.presenter,
+      level: formValues.level,
+      abstract: formValues.abstract,
+      voters: [],
+    };
+    console.log(session);
+  }
+
+  // // custom validation
+  // private restrictedWordsHardCoded(control: FormControl): { [key: string]: any } {
+  //   return control.value.includes('foo') ? { restrictedWords: 'foo' } : null;
+  // }
+}
