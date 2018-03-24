@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build --prod --no-progress --build-optimizer",
     "build.analyze": "npm run -s build -- --stats-json && webpack-bundle-analyzer -p 8888 dist/stats.json",
-    "test": "npm run -s lint && ng test --no-progress",
+    "test": "npm run -s lint && ng test --no-progress --sourcemaps=false",
     "test.once": "npm test -- --single-run --browsers ChromeHeadlessNoSandbox --reporters nyan --no-sourcemaps",
     "test.ci": "npm run -s test.once -- --code-coverage --reporters spec",
     "lint": "ng lint --type-check",
