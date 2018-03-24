@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { EventService } from '../services';
 
-import { IEvent } from '../models';
+import { IEvent, ISession } from '../models';
 
 @Component({
   selector: 'app-event-detail',
@@ -16,10 +16,36 @@ export class EventDetailComponent implements OnInit {
 
   event$: Observable<IEvent>;
 
+  event: IEvent;
+  addMode = false;
+
+  addSession() {
+    this.addMode = true;
+  }
+
+  saveNewSession(session: ISession) {
+    // find max id, and newSession id should = id + 1
+    // const maxId = Math.max.apply(null, this.event.sessions.map(s => s.id))
+    const maxId = Math.max(...this.event.sessions.map((s) => s.id));
+
+    session.id = maxId + 1;
+    this.event.sessions.push(session);
+    this.eventService.saveEvent(this.event);
+    this.addMode = false;
+  }
+
+  cancelAddSession() {
+    this.addMode = false;
+  }
+
   ngOnInit() {
     // this.event$ = this.eventService.getEvent(+this.route.snapshot.paramMap.get('id'));
 
     // use resolver
     this.event$ = Observable.of(this.route.snapshot.data['event']);
+
+    this.event$.subscribe((res) => {
+      this.event = res;
+    });
   }
 }

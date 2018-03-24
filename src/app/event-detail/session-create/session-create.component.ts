@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { restrictedWords } from './restricted-words.validator';
@@ -12,6 +12,9 @@ import { ISession } from '../../models';
 })
 export class SessionCreateComponent implements OnInit {
   constructor() {}
+
+  @Output() saveNewSession = new EventEmitter();
+  @Output() cancelAddSession = new EventEmitter();
 
   newSessionForm: FormGroup;
   name: FormControl;
@@ -41,8 +44,6 @@ export class SessionCreateComponent implements OnInit {
   }
 
   saveSession(formValues) {
-    // console.log(formValues);
-
     const session: ISession = {
       id: undefined,
       name: formValues.name,
@@ -52,7 +53,12 @@ export class SessionCreateComponent implements OnInit {
       abstract: formValues.abstract,
       voters: [],
     };
-    console.log(session);
+
+    this.saveNewSession.emit(session);
+  }
+
+  cancel() {
+    this.cancelAddSession.emit();
   }
 
   // // custom validation

@@ -19,6 +19,7 @@ import { EventCreateComponent } from './event-create/event-create.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
 import { SessionCreateComponent } from './event-detail/session-create/session-create.component';
+import { SessionListComponent } from './event-detail/session-list/session-list.component';
 
 import { EventService, AuthGuard, AuthService } from './services';
 
@@ -40,6 +41,7 @@ import { EventDetailResolverService } from './event-detail/event-detail-resolver
     EventCreateComponent,
     LoginComponent,
     SessionCreateComponent,
+    SessionListComponent,
   ],
   imports: [
     BrowserModule,

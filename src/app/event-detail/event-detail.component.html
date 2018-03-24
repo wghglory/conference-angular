@@ -38,7 +38,7 @@
 <div class="container" *ngIf="event$ | async as event;">
   <img [src]="event.imageUrl" [alt]="event.name" class="event-img">
 
-  <div class="row">
+  <div class="row pb-3">
     <div class="col-md-11">
       <h2>{{event.name}} </h2>
     </div>
@@ -61,4 +61,17 @@
       </address>
     </div>
   </div>
+
+  <div class="row my-3">
+    <div class="col-md-2">
+      <h3>Sessions</h3>
+    </div>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-outline-warning" (click)="addSession()">Add Session</button>
+    </div>
+  </div>
+
+  <app-session-list *ngIf="!addMode" [sessions]="event?.sessions"></app-session-list>
+  <app-session-create *ngIf="addMode" (saveNewSession)="saveNewSession($event)" (cancelAddSession)="cancelAddSession()"></app-session-create>
+
 </div>
