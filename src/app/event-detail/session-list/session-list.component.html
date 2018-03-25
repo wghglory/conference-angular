@@ -1,5 +1,7 @@
-<div class="row" *ngFor="let session of sessions">
-  <div class="col-md-10 card bg-secondary mb-3">
+<!-- Make this card reusable and collapsible  -->
+
+<div *ngFor="let session of sessions">
+  <!-- <div class="col-md-10 card bg-secondary mb-3">
     <h4 class="card-header">{{session.name}}</h4>
     <div class="card-body">
       <h5 class="card-title">{{session.presenter}}</h5>
@@ -7,5 +9,16 @@
       <div class="card-text">Level: {{session.level}}</div>
       <p class="card-text pt-3">{{session.abstract}}</p>
     </div>
-  </div>
+  </div> -->
+
+  <app-collapsible-card [classes]="'bg-secondary mb-3'">
+    <h4 class="card-header" card-header>{{session.name}}</h4>
+    <div class="card-body" card-body>
+      <h5 class="card-title">{{session.presenter}}</h5>
+      <div class="card-text">Duration: {{session.duration}}</div>
+      <div class="card-text">Level: {{session.level}}</div>
+      <p class="card-text pt-3">{{session.abstract}}</p>
+    </div>
+  </app-collapsible-card>
+
 </div>

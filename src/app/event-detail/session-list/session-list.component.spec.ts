@@ -1,17 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { CollapsibleCardModule } from './../../shared/collapsible-card/collapsible-card.module';
+
 import { SessionListComponent } from './session-list.component';
 
 describe('SessionListComponent', () => {
   let component: SessionListComponent;
   let fixture: ComponentFixture<SessionListComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ SessionListComponent ]
-    })
-    .compileComponents();
-  }));
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        imports: [CollapsibleCardModule],
+        declarations: [SessionListComponent],
+      }).compileComponents();
+    }),
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SessionListComponent);

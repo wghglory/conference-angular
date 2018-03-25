@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { SpinnerModule } from './shared/spinner/spinner.module';
+import { CollapsibleCardModule } from './shared/collapsible-card/collapsible-card.module';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -49,6 +50,7 @@ import { EventDetailResolverService } from './event-detail/event-detail-resolver
     FormsModule,
     ReactiveFormsModule,
     SpinnerModule,
+    CollapsibleCardModule,
     AppRoutingModule,
   ],
   providers: [

@@ -1,0 +1,6 @@
+<!-- multi slot content projection -->
+
+<div class="card" [ngClass]="classes" (click)="toggleContent()">
+  <ng-content select="[card-header]"></ng-content>
+  <ng-content *ngIf="visible" select="[card-body]"></ng-content>
+</div>

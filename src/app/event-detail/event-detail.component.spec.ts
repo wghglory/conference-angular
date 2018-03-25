@@ -7,11 +7,12 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { SpinnerModule } from './../shared/spinner/spinner.module';
-
-import { EventDetailComponent } from './event-detail.component';
+import { CollapsibleCardModule } from '../shared/collapsible-card/collapsible-card.module';
 
 import { EventService } from './../services/event.service';
+
 import { SessionListComponent } from './session-list/session-list.component';
+import { EventDetailComponent } from './event-detail.component';
 import { SessionCreateComponent } from './session-create/session-create.component';
 
 describe('EventDetailComponent', () => {
@@ -21,7 +22,13 @@ describe('EventDetailComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [RouterTestingModule, HttpClientTestingModule, ReactiveFormsModule, SpinnerModule],
+        imports: [
+          RouterTestingModule,
+          HttpClientTestingModule,
+          ReactiveFormsModule,
+          SpinnerModule,
+          CollapsibleCardModule,
+        ],
         declarations: [EventDetailComponent, SessionListComponent, SessionCreateComponent],
         providers: [EventService],
       }).compileComponents();
