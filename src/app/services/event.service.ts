@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
 
-import { IEvent } from '../models';
+import { IEvent, ISession } from '../models';
 
 @Injectable()
 export class EventService {
@@ -18,5 +18,9 @@ export class EventService {
 
   saveEvent(event: IEvent) {
     return this.http.post<IEvent>(`/api/events`, event);
+  }
+
+  searchSessions(searchTerm: string) {
+    return this.http.get<ISession[]>(`/api/events/sessions?searchTerm=${searchTerm}`);
   }
 }

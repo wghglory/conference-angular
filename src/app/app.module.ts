@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { SpinnerModule } from './shared/spinner/spinner.module';
 import { CollapsibleCardModule } from './shared/collapsible-card/collapsible-card.module';
+import { ModalModule } from './shared/modal/modal.module';
 import { SharedModule } from './shared/shared.module';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,7 +27,9 @@ import { SessionListComponent } from './event-detail/session-list/session-list.c
 import { EventService, AuthGuard, AuthService } from './services';
 
 import { TOASTR_TOKEN, Toastr } from './shared/toastr.service';
+import { JQUERY_TOKEN } from './shared/jquery.service';
 export const toastr: Toastr = window['toastr'];
+export const jquery: any = window['$'];
 
 import { checkDirtyState } from './event-create/event-create.guard';
 import { EventListResolverService } from './event-list/event-list-resolver.service';
@@ -52,12 +55,14 @@ import { EventDetailResolverService } from './event-detail/event-detail-resolver
     ReactiveFormsModule,
     SpinnerModule,
     CollapsibleCardModule,
+    ModalModule,
     SharedModule,
     AppRoutingModule,
   ],
   providers: [
     EventService,
     { provide: TOASTR_TOKEN, useValue: toastr },
+    { provide: JQUERY_TOKEN, useValue: jquery },
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState,

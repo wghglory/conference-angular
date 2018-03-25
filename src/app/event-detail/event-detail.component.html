@@ -35,7 +35,8 @@
 
 <!-- v2: Use resolver for data retrieving, app.component is responsible for loading -->
 
-<div class="container" *ngIf="event$ | async as event;">
+<!-- <div class="container" *ngIf="event$ | async as event;"> -->
+<div class="container" *ngIf="event">
   <img [src]="event.imageUrl" [alt]="event.name" class="event-img">
 
   <div class="row pb-3">

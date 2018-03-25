@@ -46,7 +46,7 @@ export class SharedModule {
 
 @NgModule({
   imports: [SharedModule, RouterTestingModule, HttpClientTestingModule],
-  exports: [SharedModule],
+  exports: [SharedModule, RouterTestingModule, HttpClientTestingModule],
   declarations: [],
 })
 export class SharedSpecModule {}

@@ -17,12 +17,31 @@ if (`******************* events ********************`) {
 
       ctx.status = 204;
     })
+    // order matters, must before /:id
+    .get('/sessions', async (ctx: any) => {
+      const term = ctx.request.query.searchTerm.toLocaleLowerCase();
+      const result = [];
 
+      EVENTS.forEach((e) => {
+        let matchingSessions = e.sessions.filter((s) => {
+          return s.name.toLocaleLowerCase().indexOf(term) > -1;
+        });
+        // we also want to add event id to all filtered sessions
+        matchingSessions = matchingSessions.map((session: any) => {
+          session.eventId = e.id;
+          return session;
+        });
+        result.push(...matchingSessions);
+        // result = result.concat(matchingSessions);
+      });
+
+      await sleep(1);
+      ctx.body = result;
+    })
     .get('/:id', async (ctx: any) => {
       await sleep(1);
       ctx.body = EVENTS.find((x) => x.id === +ctx.params.id);
     })
-
     .get('/', async (ctx: any) => {
       await sleep(1);
 
@@ -49,13 +68,11 @@ if (`******************** login ********************`) {
 
       ctx.body = ctx.session.info;
     })
-
     .post('/logout', (ctx: any) => {
       delete ctx.session.info;
       empty(ctx);
       ctx.status = 204;
     })
-
     .put('/users/:id', async (ctx: any) => {
       const id = +ctx.params.id;
 
@@ -74,7 +91,6 @@ if (`******************** login ********************`) {
 
       empty(ctx);
     })
-
     .get('/userinfo', AuthGuard, (ctx: any) => {
       ctx.body = ctx.session.info;
     });

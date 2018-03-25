@@ -31,9 +31,10 @@
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search Sessions" aria-label="Search">
-      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+    <form (ngSubmit)="searchSessions(searchTerm)" class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" [(ngModel)]="searchTerm" name="searchTerm"
+        placeholder="Search Sessions" aria-label="Search">
+      <button appModalId="searchResult" class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
     </form>
     <ul class="mr-4 navbar-nav">
       <ng-container *ngIf="authService.isAuthenticated">
@@ -52,3 +53,11 @@
     </ul>
   </div>
 </nav>
+
+<!-- content projection for modal window when clicking search -->
+<app-modal closeOnBodyClick="true" title="Matching Sessions" elementId="searchResult">
+  <div class="list-group">
+    <a class="list-group-item list-group-item-action list-group-item-info" *ngFor="let session of foundSessions"
+      [routerLink]="['/events', session.eventId]">{{session.name}}</a>
+  </div>
+</app-modal>

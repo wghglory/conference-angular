@@ -1,6 +1,6 @@
 import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 
 import { EventService } from '../services';
 
@@ -41,13 +41,41 @@ export class EventDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    // 1. no resolver, use snapshot
     // this.event$ = this.eventService.getEvent(+this.route.snapshot.paramMap.get('id'));
 
-    // use resolver
-    this.event$ = Observable.of(this.route.snapshot.data['event']);
+    // 2. no resolver, use params to watch changes
+    // this.route.params.forEach((params: Params) => {
+    //   // this.eventService.getEvent(+params['id']).subscribe((res) => {
+    //   //   this.event = res;
+    //   //   this.addMode = false;
+    //   //   this.filterBy = 'all';
+    //   //   this.sortBy = 'votes';
+    //   // });
 
-    this.event$.subscribe((res) => {
-      this.event = res;
+    //   this.event$ = this.eventService.getEvent(+params['id']);
+    //   this.event$.subscribe((res) => {
+    //     this.addMode = false;
+    //     this.filterBy = 'all';
+    //     this.sortBy = 'votes';
+    //   });
+    // });
+
+    // 3. use resolver and snapshot
+    // this.event$ = Observable.of(this.route.snapshot.data['event']);
+
+    // this.event$.subscribe((res) => {
+    //   this.event = res;
+    // });
+
+    // 4. use resolver and data watch
+    this.route.data.forEach((data) => {
+      this.event$ = Observable.of(data['event']); // In this case, better not use async pipe
+
+      this.event = data['event'];
+      this.addMode = false;
+      this.filterBy = 'all';
+      this.sortBy = 'votes';
     });
   }
 }
