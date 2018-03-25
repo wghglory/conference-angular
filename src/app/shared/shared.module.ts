@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
+import { DurationPipe } from './duration.pipe';
+
 // import { ClarityModule } from '@clr/angular';
 // import '@clr/icons/shapes/all-shapes';
 
@@ -20,9 +22,11 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
     ReactiveFormsModule,
     HttpClientModule,
 
+    DurationPipe,
+
     // ClarityModule,
   ],
-  declarations: [],
+  declarations: [DurationPipe],
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CollapsibleCardModule } from './../../shared/collapsible-card/collapsible-card.module';
+import { SharedModule } from './../../shared/shared.module';
 
 import { SessionListComponent } from './session-list.component';
 
@@ -11,7 +12,7 @@ describe('SessionListComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [CollapsibleCardModule],
+        imports: [CollapsibleCardModule, SharedModule],
         declarations: [SessionListComponent],
       }).compileComponents();
     }),

@@ -18,6 +18,8 @@ export class EventDetailComponent implements OnInit {
 
   event: IEvent;
   addMode = false;
+  filterBy = 'all';
+  sortBy = 'votes'; // default sortBy votes
 
   addSession() {
     this.addMode = true;

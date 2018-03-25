@@ -8,6 +8,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { SpinnerModule } from './../shared/spinner/spinner.module';
 import { CollapsibleCardModule } from '../shared/collapsible-card/collapsible-card.module';
+import { SharedModule } from '../shared/shared.module';
 
 import { EventService } from './../services/event.service';
 
@@ -28,6 +29,7 @@ describe('EventDetailComponent', () => {
           ReactiveFormsModule,
           SpinnerModule,
           CollapsibleCardModule,
+          SharedModule,
         ],
         declarations: [EventDetailComponent, SessionListComponent, SessionCreateComponent],
         providers: [EventService],
