@@ -52,6 +52,29 @@ if (`******************* events ********************`) {
   hook('/events', service);
 }
 
+if (`******************* vote ********************`) {
+  const service = new Router()
+    .delete('/:eventId/sessions/:sessionId/voters/:voterName', async (ctx: any) => {
+
+      console.log(ctx.request.url);
+
+      await sleep(1);
+
+      ctx.status = 204;
+    })
+    .post('/:eventId/sessions/:sessionId/voters/:voterName', async (ctx: any) => {
+
+      console.log(ctx.request.url);
+
+      await sleep(1);
+
+      ctx.status = 204;
+    });
+
+  // hook('/products', service, { pipes: [AuthGuard] });
+  hook('/events', service);
+}
+
 if (`******************** login ********************`) {
   const auth = new Router()
     .post('/login', (ctx: any) => {

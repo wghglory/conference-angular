@@ -24,7 +24,7 @@ import { LoginComponent } from './login/login.component';
 import { SessionCreateComponent } from './event-detail/session-create/session-create.component';
 import { SessionListComponent } from './event-detail/session-list/session-list.component';
 
-import { EventService, AuthGuard, AuthService } from './services';
+import { EventService, AuthGuard, AuthService, VoteService} from './services';
 
 import { TOASTR_TOKEN, Toastr } from './shared/toastr.service';
 import { JQUERY_TOKEN } from './shared/jquery.service';
@@ -34,6 +34,7 @@ export const jquery: any = window['$'];
 import { checkDirtyState } from './event-create/event-create.guard';
 import { EventListResolverService } from './event-list/event-list-resolver.service';
 import { EventDetailResolverService } from './event-detail/event-detail-resolver.service';
+import { VoteComponent } from './event-detail/vote/vote.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { EventDetailResolverService } from './event-detail/event-detail-resolver
     LoginComponent,
     SessionCreateComponent,
     SessionListComponent,
+    VoteComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +73,7 @@ import { EventDetailResolverService } from './event-detail/event-detail-resolver
     EventDetailResolverService,
     AuthService,
     AuthGuard,
+    VoteService,
   ],
   bootstrap: [AppComponent],
 })

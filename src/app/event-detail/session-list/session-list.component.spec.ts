@@ -4,6 +4,10 @@ import { CollapsibleCardModule } from './../../shared/collapsible-card/collapsib
 import { SharedModule } from './../../shared/shared.module';
 
 import { SessionListComponent } from './session-list.component';
+import { VoteComponent } from './../vote/vote.component';
+
+import { VoteService } from './../../services/vote.service';
+import { AuthService } from './../../services/auth.service';
 
 describe('SessionListComponent', () => {
   let component: SessionListComponent;
@@ -13,7 +17,8 @@ describe('SessionListComponent', () => {
     async(() => {
       TestBed.configureTestingModule({
         imports: [CollapsibleCardModule, SharedModule],
-        declarations: [SessionListComponent],
+        providers: [VoteService, AuthService],
+        declarations: [SessionListComponent, VoteComponent],
       }).compileComponents();
     }),
   );

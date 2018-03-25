@@ -11,10 +11,13 @@ import { CollapsibleCardModule } from '../shared/collapsible-card/collapsible-ca
 import { SharedModule } from '../shared/shared.module';
 
 import { EventService } from './../services/event.service';
+import { VoteService } from './../services/vote.service';
+import { AuthService } from './../services/auth.service';
 
 import { SessionListComponent } from './session-list/session-list.component';
 import { EventDetailComponent } from './event-detail.component';
 import { SessionCreateComponent } from './session-create/session-create.component';
+import { VoteComponent } from './vote/vote.component';
 
 describe('EventDetailComponent', () => {
   let component: EventDetailComponent;
@@ -31,8 +34,13 @@ describe('EventDetailComponent', () => {
           CollapsibleCardModule,
           SharedModule,
         ],
-        declarations: [EventDetailComponent, SessionListComponent, SessionCreateComponent],
-        providers: [EventService],
+        declarations: [
+          EventDetailComponent,
+          SessionListComponent,
+          SessionCreateComponent,
+          VoteComponent,
+        ],
+        providers: [EventService, VoteService, AuthService],
       }).compileComponents();
     }),
   );
