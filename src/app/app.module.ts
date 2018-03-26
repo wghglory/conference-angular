@@ -35,6 +35,7 @@ import { checkDirtyState } from './event-create/event-create.guard';
 import { EventListResolverService } from './event-list/event-list-resolver.service';
 import { EventDetailResolverService } from './event-detail/event-detail-resolver.service';
 import { VoteComponent } from './event-detail/vote/vote.component';
+import { LocationValidatorDirective } from './event-create/location-validator.directive';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { VoteComponent } from './event-detail/vote/vote.component';
     SessionCreateComponent,
     SessionListComponent,
     VoteComponent,
+    LocationValidatorDirective,
   ],
   imports: [
     BrowserModule,
