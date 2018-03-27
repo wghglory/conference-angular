@@ -2,13 +2,9 @@ import '../shared/rxjs-operators';
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-
 import { SpinnerModule } from './../shared/spinner/spinner.module';
 import { CollapsibleCardModule } from '../shared/collapsible-card/collapsible-card.module';
-import { SharedModule } from '../shared/shared.module';
+import { SharedSpecModule } from '../shared/shared.module';
 
 import { EventService } from './../services/event.service';
 import { VoteService } from './../services/vote.service';
@@ -26,14 +22,7 @@ describe('EventDetailComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [
-          RouterTestingModule,
-          HttpClientTestingModule,
-          ReactiveFormsModule,
-          SpinnerModule,
-          CollapsibleCardModule,
-          SharedModule,
-        ],
+        imports: [SpinnerModule, CollapsibleCardModule, SharedSpecModule],
         declarations: [
           EventDetailComponent,
           SessionListComponent,
