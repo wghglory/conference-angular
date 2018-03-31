@@ -15,14 +15,20 @@ import { Observable } from 'rxjs/Observable';
 import { CommonError } from '../models';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 
+import { MessageService } from '../shared/message/message.service';
+
 @Injectable()
 export class ErrorHandlingInterceptor implements HttpInterceptor {
-  constructor() {}
+  constructor(private messageService: MessageService) {}
 
   private handleHttpError(err: HttpErrorResponse): Observable<any> {
     const dataError = new CommonError();
     dataError.code = err.error.code || err.status;
     dataError.message = err.error.message || err.message;
+
+    this.messageService.updateMessage({
+      message: dataError.message,
+    });
 
     return ErrorObservable.create(dataError); // Observable.throw(dataError);
   }

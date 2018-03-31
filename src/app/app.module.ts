@@ -6,6 +6,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { MessageModule } from './shared/message/message.module';
 import { SpinnerModule } from './shared/spinner/spinner.module';
 import { CollapsibleCardModule } from './shared/collapsible-card/collapsible-card.module';
 import { ModalModule } from './shared/modal/modal.module';
@@ -56,6 +57,7 @@ import { LocationValidatorDirective } from './event-create/location-validator.di
     CollapsibleCardModule,
     ModalModule,
     SharedModule,
+    MessageModule,
     AppRoutingModule,
   ],
   providers: [

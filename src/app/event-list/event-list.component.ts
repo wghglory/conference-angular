@@ -43,7 +43,7 @@ export class EventListComponent implements OnInit {
     const resolvedData: IEvent[] | CommonError = this.route.snapshot.data['events'];
 
     if (resolvedData instanceof CommonError) {
-      alert(`Handling error here by UI message: ${resolvedData.message}`);
+      console.log(`Handling error here by UI message: ${resolvedData.message}`);
     } else {
       this.events = resolvedData;
     }

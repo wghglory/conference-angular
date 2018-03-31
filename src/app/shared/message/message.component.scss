@@ -1,0 +1,24 @@
+.alert-module-level {
+  margin-bottom: 20px;
+
+  .close {
+    display: inline-block;
+    margin: 0;
+  }
+
+  animation: fadeIn 1s forwards;
+
+  .alert-text {
+    word-break: break-word;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

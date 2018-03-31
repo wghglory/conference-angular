@@ -3,6 +3,7 @@ import { TestBed, async } from '@angular/core/testing';
 import { SharedSpecModule } from './shared/shared.module';
 import { SpinnerModule } from './shared/spinner/spinner.module';
 import { ModalModule } from './shared/modal/modal.module';
+import { MessageModule } from './shared/message/message.module';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -15,7 +16,7 @@ describe('AppComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [SharedSpecModule, SpinnerModule, ModalModule],
+        imports: [SharedSpecModule, SpinnerModule, ModalModule, MessageModule],
         providers: [AuthService, EventService, { provide: JQUERY_TOKEN, useValue: {} }],
         declarations: [AppComponent, NavbarComponent],
       }).compileComponents();
