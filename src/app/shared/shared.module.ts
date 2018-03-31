@@ -9,6 +9,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { DurationPipe } from './duration.pipe';
+import { PositiveNumberDirective } from './validators/positive-number-validator.directive';
 
 import { LogResponseInterceptor } from './interceptor.log-response';
 import { AddHeaderInterceptor } from './interceptor.add-header';
@@ -50,7 +51,7 @@ export const jquery: any = window['$'];
     { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true },
     ...providers,
   ],
-  declarations: [DurationPipe],
+  declarations: [DurationPipe, PositiveNumberDirective],
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
