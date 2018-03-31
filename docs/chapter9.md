@@ -9,7 +9,7 @@ Take event-detail.component.html for instance:
 ```html
     <h2>{{event?.name | uppercase}} </h2>
     <div><strong>Date:</strong> {{event?.date | date:'shortDate'}}</div>
-    <div><strong>Price:</strong> {{event?.price | currency:'USD':true}}</div>
+    <div><strong>Price:</strong> {{event?.price | currency:'USD':'symbol'}}</div>
 ```
 
 ### Creating a Custom Pipe

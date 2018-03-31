@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { IEvent } from '../models/';
+import { IEvent, CommonError } from '../models/';
 
 import { EventService } from '../services';
 
@@ -27,10 +27,25 @@ export class EventListComponent implements OnInit {
     this.router.navigate(['/events', event.id]);
   }
 
+  deleteEvent(eventId: number): void {
+    this.eventService.deleteEvent(eventId).subscribe(
+      (data: void) => {
+        console.log(`delete successfully`);
+      },
+      (err: any) => console.log(err),
+    );
+  }
+
   ngOnInit() {
     // this.eventService.getEvents().subscribe((res) => (this.events = res));
 
     // use resolver
-    this.events = this.route.snapshot.data['events'];
+    const resolvedData: IEvent[] | CommonError = this.route.snapshot.data['events'];
+
+    if (resolvedData instanceof CommonError) {
+      alert(`Handling error here by UI message: ${resolvedData.message}`);
+    } else {
+      this.events = resolvedData;
+    }
   }
 }
