@@ -26,11 +26,6 @@ import { SessionListComponent } from './event-detail/session-list/session-list.c
 
 import { EventService, AuthGuard, AuthService, VoteService } from './services';
 
-import { TOASTR_TOKEN, Toastr } from './shared/toastr.service';
-import { JQUERY_TOKEN } from './shared/jquery.service';
-export const toastr: Toastr = window['toastr'];
-export const jquery: any = window['$'];
-
 import { checkDirtyState } from './event-create/event-create.guard';
 import { EventListResolverService } from './event-list/event-list-resolver.service';
 import { EventDetailResolverService } from './event-detail/event-detail-resolver.service';
@@ -65,8 +60,6 @@ import { LocationValidatorDirective } from './event-create/location-validator.di
   ],
   providers: [
     EventService,
-    { provide: TOASTR_TOKEN, useValue: toastr },
-    { provide: JQUERY_TOKEN, useValue: jquery },
     {
       provide: 'canDeactivateCreateEvent',
       useValue: checkDirtyState,
