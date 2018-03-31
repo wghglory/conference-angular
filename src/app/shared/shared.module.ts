@@ -13,6 +13,7 @@ import { DurationPipe } from './duration.pipe';
 import { LogResponseInterceptor } from './interceptor.log-response';
 import { AddHeaderInterceptor } from './interceptor.add-header';
 import { CacheInterceptor } from './interceptor.cache';
+import { providers } from './interceptor';
 
 import { PlainLoggerService } from './logger-plain.service';
 import { LoggerService } from './logger.service';
@@ -47,6 +48,7 @@ export const jquery: any = window['$'];
     { provide: HTTP_INTERCEPTORS, useClass: LogResponseInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: AddHeaderInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true },
+    ...providers,
   ],
   declarations: [DurationPipe],
 })

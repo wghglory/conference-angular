@@ -12,18 +12,18 @@ import { IEvent, CommonError, ISession, IEventNew } from '../models';
 export class EventService {
   constructor(private http: HttpClient) {}
 
-  private handleHttpError(err: HttpErrorResponse): Observable<CommonError> {
-    const dataError = new CommonError();
-    dataError.code = err.error.code || err.status;
-    dataError.message = err.error.message || err.message;
+  // moved to interceptor.ts
+  // private handleHttpError(err: HttpErrorResponse): Observable<CommonError> {
+  //   const dataError = new CommonError();
+  //   dataError.code = err.error.code || err.status;
+  //   dataError.message = err.error.message || err.message;
 
-    return ErrorObservable.create(dataError);
-  }
+  //   return ErrorObservable.create(dataError);  // Observable.throw(dataError);
+  // }
 
   getEvents() {
-    return this.http
-      .get<IEvent[]>(`/api/events`)
-      .pipe(catchError((err) => this.handleHttpError(err)));
+    return this.http.get<IEvent[]>(`/api/events`);
+    // .pipe(catchError((err) => this.handleHttpError(err)));
   }
 
   getEvent(id: number) {

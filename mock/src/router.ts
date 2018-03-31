@@ -46,13 +46,13 @@ if (`******************* events ********************`) {
     .get('/', async (ctx: any) => {
       await sleep(1);
 
-      // ctx.body = EVENTS;
+      ctx.body = EVENTS;
 
-      ctx.status = 500;
-      ctx.body = {
-        message: 'sorry',
-        code: 500,
-      };
+      // ctx.status = 500;
+      // ctx.body = {
+      //   message: 'sorry this is an error from mock on purpose to test error handling',
+      //   code: 500,
+      // };
     });
 
   // hook('/products', service, { pipes: [AuthGuard] });
