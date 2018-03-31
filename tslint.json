@@ -1,4 +1,9 @@
 {
+  "plugins": ["prettier"],
+  "extends": [
+    "tslint-plugin-prettier",
+    "tslint-config-prettier"
+  ],
   "rulesDirectory": [
     "node_modules/codelyzer"
   ],
