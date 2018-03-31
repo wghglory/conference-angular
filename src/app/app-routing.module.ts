@@ -45,7 +45,11 @@ const routes: Routes = [
   },
   { path: '', redirectTo: 'events', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'user', loadChildren: lazyLoadingUserModule, canActivate: [AuthGuard] }, // lazy loading
+  {
+    path: 'user',
+    loadChildren: lazyLoadingUserModule,
+    canActivate: [AuthGuard],
+  }, // lazy loading
   // { path: 'user', loadChildren: './user/user.module#UserModule', canActivate: [AuthGuard] }, // lazy loading, @angular-cli@1.7.2|3 bug
   { path: '**', component: NotFoundComponent },
 ];

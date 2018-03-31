@@ -24,7 +24,7 @@ import { LoginComponent } from './login/login.component';
 import { SessionCreateComponent } from './event-detail/session-create/session-create.component';
 import { SessionListComponent } from './event-detail/session-list/session-list.component';
 
-import { EventService, AuthGuard, AuthService, VoteService} from './services';
+import { EventService, AuthGuard, AuthService, VoteService } from './services';
 
 import { TOASTR_TOKEN, Toastr } from './shared/toastr.service';
 import { JQUERY_TOKEN } from './shared/jquery.service';

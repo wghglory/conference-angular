@@ -6,5 +6,4 @@
 </ng-template>
 ```
 
-> fill, height, width, isCenter are all optional.
-> isCenter by default is true, meaning the spinner is absolute at center of relative parent.
+> fill, height, width, isCenter are all optional. isCenter by default is true, meaning the spinner is absolute at center of relative parent.

@@ -1,12 +1,12 @@
 # Introduce Bootstrap
 
-1. At this point, bootstrap 4.0.0, jquery 3.3.1, popper.js 1.12.9 will be installed.
+1.  At this point, bootstrap 4.0.0, jquery 3.3.1, popper.js 1.12.9 will be installed.
 
 ```bash
 yarn add bootstrap jquery popper.js
 ```
 
-1. Edit `.angular-cli.json`:
+1.  Edit `.angular-cli.json`:
 
 ```json
 {

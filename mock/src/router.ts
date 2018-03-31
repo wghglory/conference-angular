@@ -6,6 +6,7 @@ const router = new Router({ prefix: '/api' });
 const hook = hookOn(router);
 
 import { EVENTS } from './database/events';
+import { ISession } from './../../src/app/models/event.model';
 import { USERS } from './database/users';
 
 if (`******************* events ********************`) {
@@ -20,7 +21,7 @@ if (`******************* events ********************`) {
     // order matters, must before /:id
     .get('/sessions', async (ctx: any) => {
       const term = ctx.request.query.searchTerm.toLocaleLowerCase();
-      const result = [];
+      const result: ISession[] = [];
 
       EVENTS.forEach((e) => {
         let matchingSessions = e.sessions.filter((s) => {
@@ -55,7 +56,6 @@ if (`******************* events ********************`) {
 if (`******************* vote ********************`) {
   const service = new Router()
     .delete('/:eventId/sessions/:sessionId/voters/:voterName', async (ctx: any) => {
-
       console.log(ctx.request.url);
 
       await sleep(1);
@@ -63,7 +63,6 @@ if (`******************* vote ********************`) {
       ctx.status = 204;
     })
     .post('/:eventId/sessions/:sessionId/voters/:voterName', async (ctx: any) => {
-
       console.log(ctx.request.url);
 
       await sleep(1);

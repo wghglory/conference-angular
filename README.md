@@ -32,6 +32,23 @@ ng g c navbar -d
 
 * [Setup CI](docs/CI.md)
 * [Install Bootstrap](docs/Bootstrap.md)
+* _chapter01_: systemJS, tsconfig, package.json; first component, module and bootstrap module
+* _chapter02_: create component using external templates, communication between parent and child components, styling component
+* _chapter03_: ngIf, ngFor, [hidden], [ngSwitch], [ngClass], [ngStyle]
+* _chapter04_: create reusable service and inject 3rd party lib as service
+* _chapter05_: routes, barrels
+* _chapter06_: model safety, template-based and model-drive reactive forms, validation
+* _chapter07_: parent and child component communicating (Input, Output)
+* _chapter08_: reusing components with content projection
+* _chapter09_: pipe, sort, filter
+* _chapter10_: DI, OpaqueToken
+* _chapter11_: Creating Directives and Advanced Components
+* _chapter12_: voter components, service, @input setter; custom validation for location and onlineUrl
+* _chapter13_: Communicating with the Server Using HTTP, Observables, and Rx
+* _chapter14_: unit testing by jasmine and karma
+* _chapter15_: integration testing
+* _chapter16_: ProductionModule and Tunning rxjs requests
+* _chapter17_: Production AOT
 
 ---
 

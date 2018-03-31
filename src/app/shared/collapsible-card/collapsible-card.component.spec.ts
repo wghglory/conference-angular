@@ -6,12 +6,13 @@ describe('CollapsibleCardComponent', () => {
   let component: CollapsibleCardComponent;
   let fixture: ComponentFixture<CollapsibleCardComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ CollapsibleCardComponent ]
-    })
-    .compileComponents();
-  }));
+  beforeEach(
+    async(() => {
+      TestBed.configureTestingModule({
+        declarations: [CollapsibleCardComponent],
+      }).compileComponents();
+    }),
+  );
 
   beforeEach(() => {
     fixture = TestBed.createComponent(CollapsibleCardComponent);

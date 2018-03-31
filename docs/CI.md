@@ -6,21 +6,22 @@
 {
   "scripts": {
     "test": "npm run -s lint && ng test --no-progress",
-    "test.once": "npm test -- --single-run --browsers ChromeHeadlessNoSandbox --reporters nyan --no-sourcemaps",
-    "test.ci": "npm run -s test.once -- --code-coverage --reporters spec",
+    "test.once":
+      "npm test -- --single-run --browsers ChromeHeadlessNoSandbox --reporters nyan --no-sourcemaps",
+    "test.ci": "npm run -s test.once -- --code-coverage --reporters spec"
   },
   "devDependencies": {
     "karma-nyan-reporter": "^0.2.5",
-    "karma-spec-reporter": "^0.0.32",
+    "karma-spec-reporter": "^0.0.32"
   }
 }
 ```
 
-## [Travis CI for unix](<https://travis-ci.org>)
+## [Travis CI for unix](https://travis-ci.org)
 
-1. Sign in by github and you should see all repositories at <https://travis-ci.org/profile/wghglory>. Turn on `wghglory/conference-angular`.
+1.  Sign in by github and you should see all repositories at <https://travis-ci.org/profile/wghglory>. Turn on `wghglory/conference-angular`.
 
-1. Create .travis.yml
+1.  Create .travis.yml
 
     ```yml
     language: node_js
@@ -76,9 +77,9 @@
     #     on_success: guanghui-wang@foxmail.com
     ```
 
-1. If I intently change index.html h1 from 'hello world' to 'hello' and then commit to github. Note our test watching task only watches js now, so html changes won't be reflected in terminal unless restarting.
+1.  If I intently change index.html h1 from 'hello world' to 'hello' and then commit to github. Note our test watching task only watches js now, so html changes won't be reflected in terminal unless restarting.
 
-1. After commit and push to github. Travis will build and give us the build result.
+1.  After commit and push to github. Travis will build and give us the build result.
 
 If using karma runs chrome and see below issue:
 
@@ -100,11 +101,11 @@ module.exports = function(config) {
     customLaunchers: {
       ChromeHeadlessNoSandbox: {
         base: 'ChromeHeadless',
-        flags: ['--no-sandbox']
-      }
-    }
-  })
-}
+        flags: ['--no-sandbox'],
+      },
+    },
+  });
+};
 ```
 
 ## [Appveyor for windows](https://ci.appveyor.com/)

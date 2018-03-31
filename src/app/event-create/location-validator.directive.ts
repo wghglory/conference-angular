@@ -3,7 +3,13 @@ import { Validator, FormGroup, NG_VALIDATORS } from '@angular/forms';
 
 @Directive({
   selector: '[appLocationValidator]',
-  providers: [{ provide: NG_VALIDATORS, useExisting: LocationValidatorDirective, multi: true }],
+  providers: [
+    {
+      provide: NG_VALIDATORS,
+      useExisting: LocationValidatorDirective,
+      multi: true,
+    },
+  ],
   // use multi:true to add LocationValidatorDirective to NG_VALIDATORS
   // which is a list of angular built-in validators, otherwise can replace/override
 })

@@ -10,7 +10,8 @@ export class VoteComponent implements OnInit {
   @Input() count: number;
   iconColor: string;
 
-  @Input() set voted(val) {
+  @Input()
+  set voted(val) {
     this.iconColor = val ? 'red' : 'white';
   }
   @Output() vote = new EventEmitter();
