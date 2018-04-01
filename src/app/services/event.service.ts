@@ -12,6 +12,13 @@ import { IEvent, CommonError, ISession, IEventNew } from '../models';
 export class EventService {
   constructor(private http: HttpClient) {}
 
+  // components communication: this public prop and method can pass data between components
+  propSharedForMultiComponents = 'Hello world';
+
+  setProp(value: string) {
+    this.propSharedForMultiComponents = value;
+  }
+
   // moved to interceptor.ts
   // private handleHttpError(err: HttpErrorResponse): Observable<CommonError> {
   //   const dataError = new CommonError();
