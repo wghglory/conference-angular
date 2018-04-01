@@ -1,5 +1,6 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, VERSION } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 import { IEvent, CommonError } from '../models/';
 
@@ -18,6 +19,7 @@ export class EventListComponent implements OnInit {
     @Inject(TOASTR_TOKEN) private toastr: Toastr,
     private route: ActivatedRoute,
     private router: Router,
+    private title: Title,
   ) {}
 
   events: IEvent[];
@@ -37,7 +39,13 @@ export class EventListComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.eventService.getEvents().subscribe((res) => (this.events = res));
+    // this.eventService
+    //   .getEvents()
+    //   .subscribe(
+    //     (data: IEvent[]) => (this.events = data),
+    //     (err: CommonError) => console.log(err.message),
+    //     () => console.log('execute only after first para and no error.'),
+    //   );
 
     // use resolver
     const resolvedData: IEvent[] | CommonError = this.route.snapshot.data['events'];
@@ -50,6 +58,8 @@ export class EventListComponent implements OnInit {
 
     // demo purpose
     this.getAuthorRecommendationAsync(1).catch((err) => console.error(err));
+
+    this.title.setTitle(`Conference ${VERSION.full}`);
   }
 
   private async getAuthorRecommendationAsync(id: number): Promise<void> {
