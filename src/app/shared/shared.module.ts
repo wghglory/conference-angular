@@ -1,4 +1,4 @@
-import { NgModule, ModuleWithProviders, Optional, SkipSelf } from '@angular/core';
+import { NgModule, ModuleWithProviders, Optional, SkipSelf, ErrorHandler } from '@angular/core';
 
 import { throwIfAlreadyLoaded } from './module-import-guard';
 
@@ -22,6 +22,7 @@ import { PlainLoggerService } from './logger-plain.service';
 import { LoggerService } from './logger.service';
 import { HttpCacheService } from './http-cache.service';
 import { HttpCacheServiceFactory } from './http-cache.factory.service';
+import { CommonErrorHandlerService } from './error-handler.service';
 
 // import { ClarityModule } from '@clr/angular';
 // import '@clr/icons/shapes/all-shapes';
@@ -63,6 +64,7 @@ export const jquery: any = window['$'];
     { provide: HTTP_INTERCEPTORS, useClass: AddHeaderInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true },
     ...providers,
+    { provide: ErrorHandler, useClass: CommonErrorHandlerService },
   ],
   declarations: [DurationPipe, PositiveNumberDirective],
 })

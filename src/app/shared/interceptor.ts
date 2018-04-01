@@ -75,12 +75,12 @@ export function AuthInspectorFactory(router: Router) {
 }
 
 export const providers: Provider[] = [
-  <ClassProvider>{
-    provide: HTTP_INTERCEPTORS,
-    useClass: ErrorHandlingInterceptor,
-    multi: true,
-  },
-
+  // <ClassProvider>{
+  //   provide: HTTP_INTERCEPTORS,
+  //   useClass: ErrorHandlingInterceptor,
+  //   multi: true,
+  // },
+  //
   // <FactoryProvider>{
   //   provide: HTTP_INTERCEPTORS,
   //   useFactory: AuthInspectorFactory,
