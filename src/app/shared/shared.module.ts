@@ -1,4 +1,6 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule, ModuleWithProviders, Optional, SkipSelf } from '@angular/core';
+
+import { throwIfAlreadyLoaded } from './module-import-guard';
 
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -19,9 +21,11 @@ import { providers } from './interceptor';
 import { PlainLoggerService } from './logger-plain.service';
 import { LoggerService } from './logger.service';
 import { HttpCacheService } from './http-cache.service';
+import { HttpCacheServiceFactory } from './http-cache.factory.service';
 
 // import { ClarityModule } from '@clr/angular';
 // import '@clr/icons/shapes/all-shapes';
+
 import { TOASTR_TOKEN, Toastr } from './toastr.service';
 import { JQUERY_TOKEN } from './jquery.service';
 export const toastr: Toastr = window['toastr'];
@@ -41,9 +45,18 @@ export const jquery: any = window['$'];
     // ClarityModule,
   ],
   providers: [
-    HttpCacheService,
-    LoggerService,
+    // {
+    //   provide: LoggerService,
+    //   useValue: {
+    //     log: (message) => console.log(`MESSAGE: ${message}`),
+    //     error: (message) => console.error(`PROBLEM: ${message}`),
+    //   },
+    // },
+    { provide: HttpCacheService, useFactory: HttpCacheServiceFactory, deps: [LoggerService] },
+    // HttpCacheService,
+    // LoggerService,
     PlainLoggerService,
+    { provide: LoggerService, useExisting: PlainLoggerService },
     { provide: TOASTR_TOKEN, useValue: toastr },
     { provide: JQUERY_TOKEN, useValue: jquery },
     { provide: HTTP_INTERCEPTORS, useClass: LogResponseInterceptor, multi: true },
@@ -54,6 +67,14 @@ export const jquery: any = window['$'];
   declarations: [DurationPipe, PositiveNumberDirective],
 })
 export class SharedModule {
+  constructor(
+    @Optional()
+    @SkipSelf()
+    parentModule: SharedModule,
+  ) {
+    throwIfAlreadyLoaded(parentModule, 'SharedModule');
+  }
+
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: SharedModule,

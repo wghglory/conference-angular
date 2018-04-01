@@ -20,6 +20,7 @@ export class CacheInterceptor implements HttpInterceptor {
     // pass along non-cacheable requests and invalidate cache
     if (req.method !== 'GET') {
       console.log(`Invalidating cache: ${req.method} ${req.url}`);
+      console.log(this.cacheService);
       this.cacheService.invalidateCache();
       return next.handle(req);
     }
