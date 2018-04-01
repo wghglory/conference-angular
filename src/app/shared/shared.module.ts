@@ -10,6 +10,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
+import { MessageModule } from './message/message.module';
+
 import { DurationPipe } from './duration.pipe';
 import { PositiveNumberDirective } from './validators/positive-number-validator.directive';
 
@@ -33,7 +35,14 @@ export const toastr: Toastr = window['toastr'];
 export const jquery: any = window['$'];
 
 @NgModule({
-  imports: [CommonModule, RouterModule, FormsModule, ReactiveFormsModule, HttpClientModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MessageModule,
+  ],
   exports: [
     CommonModule,
     RouterModule,
@@ -43,6 +52,7 @@ export const jquery: any = window['$'];
 
     DurationPipe,
 
+    MessageModule,
     // ClarityModule,
   ],
   providers: [
