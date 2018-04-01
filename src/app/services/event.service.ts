@@ -19,6 +19,19 @@ export class EventService {
     this.propSharedForMultiComponents = value;
   }
 
+  // promise demo: call in event-list.component.ts
+  getDataPromise(id: number): Promise<string> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (id > 0) {
+          resolve('id is bigger than 0');
+        } else {
+          reject('Invalid id');
+        }
+      }, 2000);
+    });
+  }
+
   // moved to interceptor.ts
   // private handleHttpError(err: HttpErrorResponse): Observable<CommonError> {
   //   const dataError = new CommonError();

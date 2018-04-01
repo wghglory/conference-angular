@@ -47,5 +47,23 @@ export class EventListComponent implements OnInit {
     } else {
       this.events = resolvedData;
     }
+
+    // demo purpose
+    this.getAuthorRecommendationAsync(1).catch((err) => console.error(err));
+  }
+
+  private async getAuthorRecommendationAsync(id: number): Promise<void> {
+    /* way 1: handling error try catch
+    let result = '';
+    try {
+      result = await this.eventService.getDataPromise(id);
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    } */
+
+    /* way 2: handling error using caller.catch() */
+    const result = await this.eventService.getDataPromise(id);
+    console.log(result);
   }
 }
