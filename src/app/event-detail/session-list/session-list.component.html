@@ -1,6 +1,7 @@
 <!-- Make this card reusable and collapsible  -->
 
 <div class="row mb-3" *ngFor="let session of visibleSessions">
+  <!-- <div class="row mb-3" *ngFor="let session of visibleSessions | orderBy:sortBy"> -->
   <div class="col-md-2 bg-secondary" *ngIf="authService.isAuthenticated">
     <app-vote (vote)="toggleVote(session)" [count]="session.voters.length" [voted]="userHasVoted(session)"></app-vote>
   </div>

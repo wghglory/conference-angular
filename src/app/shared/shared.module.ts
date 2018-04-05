@@ -9,15 +9,23 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { DurationPipe } from './pipes/duration.pipe';
+import { OrderByPipe } from './pipes/order-by.pipe';
 import { PositiveNumberDirective } from './validators/positive-number-validator.directive';
 
 import { EventService, VoteService } from './services';
 
 @NgModule({
   imports: [CommonModule, SpinnerModule, CollapsibleCardModule, ModalModule],
-  exports: [CommonModule, DurationPipe, SpinnerModule, CollapsibleCardModule, ModalModule],
+  exports: [
+    CommonModule,
+    OrderByPipe,
+    DurationPipe,
+    SpinnerModule,
+    CollapsibleCardModule,
+    ModalModule,
+  ],
   providers: [EventService, VoteService],
-  declarations: [DurationPipe, PositiveNumberDirective],
+  declarations: [OrderByPipe, DurationPipe, PositiveNumberDirective],
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
