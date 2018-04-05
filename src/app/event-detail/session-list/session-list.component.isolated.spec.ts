@@ -1,5 +1,5 @@
 import { SessionListComponent } from './session-list.component';
-import { ISession } from './../../models';
+import { ISession } from '../../shared/models';
 
 describe('SessionListComponent', () => {
   let component: SessionListComponent;

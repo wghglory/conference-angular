@@ -10,10 +10,10 @@ import { SharedSpecModule } from './../../shared/shared.module';
 import { SessionListComponent } from './session-list.component';
 import { VoteComponent } from './../vote/vote.component';
 
-import { VoteService } from './../../services/vote.service';
-import { AuthService } from './../../services/auth.service';
+import { AuthService } from './../../core/services/auth.service';
+import { VoteService } from './../../shared/services/vote.service';
 
-import { ISession } from '../../models';
+import { ISession } from '../../shared/models';
 
 describe('SessionListComponent', () => {
   let component: SessionListComponent;

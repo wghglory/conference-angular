@@ -1,4 +1,4 @@
-import { AuthService } from './services/auth.service';
+import { AuthService } from './core/services/auth.service';
 import { Component, ChangeDetectorRef } from '@angular/core';
 
 import {

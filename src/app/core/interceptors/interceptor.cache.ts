@@ -10,7 +10,7 @@ import { Observable } from 'rxjs/Observable';
 import { tap } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 
-import { HttpCacheService } from './http-cache.service';
+import { HttpCacheService } from '../services/http-cache.service';
 
 @Injectable()
 export class CacheInterceptor implements HttpInterceptor {
@@ -20,7 +20,6 @@ export class CacheInterceptor implements HttpInterceptor {
     // pass along non-cacheable requests and invalidate cache
     if (req.method !== 'GET') {
       console.log(`Invalidating cache: ${req.method} ${req.url}`);
-      console.log(this.cacheService);
       this.cacheService.invalidateCache();
       return next.handle(req);
     }
@@ -31,7 +30,6 @@ export class CacheInterceptor implements HttpInterceptor {
     // return cached response
     if (cachedResponse) {
       console.log(`Returning a cached response: ${cachedResponse.url}`);
-      console.log(cachedResponse);
       return of(cachedResponse);
     }
 

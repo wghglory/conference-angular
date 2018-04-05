@@ -1,10 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { CoreModule } from '../core/core.module';
 import { SharedSpecModule } from '../shared/shared.module';
 
 import { LoginComponent } from './login.component';
-
-import { AuthService } from './../services/auth.service';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -13,8 +12,7 @@ describe('LoginComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [SharedSpecModule],
-        providers: [AuthService],
+        imports: [CoreModule, SharedSpecModule],
         declarations: [LoginComponent],
       }).compileComponents();
     }),

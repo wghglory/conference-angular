@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { SharedSpecModule } from './../shared/shared.module';
+import { SharedSpecModule } from '../../shared/shared.module';
 
 import { Observable } from 'rxjs/Observable';
 

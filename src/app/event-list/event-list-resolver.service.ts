@@ -1,11 +1,11 @@
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs/observable/of';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
 
-import { EventService } from '../services';
-import { catchError } from 'rxjs/operators';
-import { of } from 'rxjs/observable/of';
-import { CommonError, IEvent } from '../models';
+import { EventService } from '../shared/services';
+import { CommonError, IEvent } from '../shared/models';
 
 @Injectable()
 export class EventListResolverService implements Resolve<IEvent[] | CommonError> {

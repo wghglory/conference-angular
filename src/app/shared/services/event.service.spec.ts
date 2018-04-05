@@ -77,7 +77,6 @@ describe('EventService', () => {
     eventService.getEvents().subscribe(
       (data: IEvent[]) => fail('this should have been an error'),
       (err: any) => {
-        console.error(err);
         expect(err.error.code).toEqual(500);
         expect(err.error.message).toEqual('An error occurred retrieving data.');
       },

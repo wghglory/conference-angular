@@ -1,9 +1,9 @@
 import { Injectable, ErrorHandler } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 
-import { CommonError } from './../models/error.model';
+import { CommonError } from '../../shared/models/error.model';
 
-import { MessageService } from './message/message.service';
+import { MessageService } from '../message/message.service';
 
 @Injectable()
 export class CommonErrorHandlerService implements ErrorHandler {

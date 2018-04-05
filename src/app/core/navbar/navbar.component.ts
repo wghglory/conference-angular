@@ -2,8 +2,8 @@ import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { ISession } from '../models';
-import { EventService } from '../services';
+import { ISession } from '../../shared/models';
+import { EventService } from '../../shared/services';
 
 @Component({
   selector: 'app-navbar',

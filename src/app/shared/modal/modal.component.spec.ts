@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JQUERY_TOKEN } from '../jquery.service';
+import { JQUERY_TOKEN } from '../../core/services/jquery.service';
 
 import { ModalComponent } from './modal.component';
 

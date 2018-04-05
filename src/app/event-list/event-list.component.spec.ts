@@ -1,14 +1,10 @@
+import { CoreModule } from './../core/core.module';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { SpinnerModule } from './../shared/spinner/spinner.module';
+import { SharedSpecModule } from './../shared/shared.module';
 
 import { EventListComponent } from './event-list.component';
 import { EventThumbnailComponent } from './event-thumbnail/event-thumbnail.component';
-
-import { EventService } from '../services';
-import { TOASTR_TOKEN } from './../shared/toastr.service';
 
 describe('EventListComponent', () => {
   let component: EventListComponent;
@@ -17,9 +13,9 @@ describe('EventListComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [HttpClientTestingModule, RouterTestingModule, SpinnerModule],
+        imports: [SharedSpecModule, CoreModule],
         declarations: [EventListComponent, EventThumbnailComponent],
-        providers: [EventService, { provide: TOASTR_TOKEN, useValue: {} }],
+        providers: [],
       }).compileComponents();
     }),
   );

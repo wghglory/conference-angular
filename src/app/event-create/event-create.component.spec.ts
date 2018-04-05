@@ -1,10 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { CoreModule } from './../core/core.module';
 import { SharedSpecModule } from '../shared/shared.module';
 
 import { EventCreateComponent } from './event-create.component';
 
-import { EventService } from '../services';
+import { EventService } from '../shared/services';
+import { LocationValidatorDirective } from './location-validator.directive';
 
 describe('EventCreateComponent', () => {
   let component: EventCreateComponent;
@@ -13,8 +15,8 @@ describe('EventCreateComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [SharedSpecModule],
-        providers: [EventService],
+        imports: [SharedSpecModule, CoreModule],
+        providers: [EventService, LocationValidatorDirective],
         declarations: [EventCreateComponent],
       }).compileComponents();
     }),

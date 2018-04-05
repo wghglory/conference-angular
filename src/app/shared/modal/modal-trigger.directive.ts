@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input, Inject, OnInit } from '@angular/core';
-import { JQUERY_TOKEN } from '../jquery.service';
+import { JQUERY_TOKEN } from '../../core/services/jquery.service';
 
 @Directive({
   selector: '[appModalId]',

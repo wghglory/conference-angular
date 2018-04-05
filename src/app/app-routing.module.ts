@@ -11,7 +11,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 import { UserModule } from './user/user.module';
 
-import { AuthGuard } from './services/auth.guard';
+import { AuthGuard } from './core/services/auth.guard';
 import { EventListResolverService } from './event-list/event-list-resolver.service';
 import { EventDetailResolverService } from './event-detail/event-detail-resolver.service';
 

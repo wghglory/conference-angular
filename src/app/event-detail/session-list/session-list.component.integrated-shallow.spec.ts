@@ -5,16 +5,15 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
-import { CollapsibleCardModule } from './../../shared/collapsible-card/collapsible-card.module';
 import { SharedSpecModule } from './../../shared/shared.module';
 
 import { SessionListComponent } from './session-list.component';
 import { VoteComponent } from './../vote/vote.component';
 
-import { VoteService } from './../../services/vote.service';
-import { AuthService } from './../../services/auth.service';
+import { AuthService } from '../../core/services/auth.service';
+import { VoteService } from '../../shared/services/vote.service';
 
-import { ISession } from '../../models';
+import { ISession } from '../../shared/models';
 
 describe('SessionListComponent', () => {
   let component: SessionListComponent;

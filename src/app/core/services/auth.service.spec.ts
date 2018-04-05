@@ -1,7 +1,7 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { AuthService } from './auth.service';
-import { SharedSpecModule } from '../shared/shared.module';
+import { SharedSpecModule } from '../../shared/shared.module';
 
 describe('AuthService', () => {
   beforeEach(() => {

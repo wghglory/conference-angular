@@ -3,6 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SessionCreateComponent } from './session-create.component';
 
 import { SharedSpecModule } from './../../shared/shared.module';
+import { CoreModule } from '../../core/core.module';
 
 describe('SessionCreateComponent', () => {
   let component: SessionCreateComponent;
@@ -11,7 +12,7 @@ describe('SessionCreateComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [SharedSpecModule],
+        imports: [CoreModule, SharedSpecModule],
         declarations: [SessionCreateComponent],
       }).compileComponents();
     }),

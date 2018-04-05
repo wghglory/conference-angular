@@ -3,7 +3,7 @@ import { TestBed, inject } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { EventListResolverService } from './event-list-resolver.service';
-import { EventService } from '../services';
+import { EventService } from '../shared/services';
 
 describe('EventListResolverService', () => {
   beforeEach(() => {

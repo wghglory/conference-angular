@@ -1,3 +1,4 @@
+import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { Provider, ClassProvider, FactoryProvider, Injectable } from '@angular/core';
 
 import {
@@ -12,10 +13,9 @@ import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
 
-import { CommonError } from '../models';
-import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
+import { CommonError } from '../../shared/models';
 
-import { MessageService } from '../shared/message/message.service';
+import { MessageService } from '../message/message.service';
 
 @Injectable()
 export class ErrorHandlingInterceptor implements HttpInterceptor {

@@ -8,7 +8,7 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { tap } from 'rxjs/operators';
-import { LoggerService } from './logger.service';
+import { LoggerService } from '../services/logger.service';
 
 @Injectable()
 export class LogResponseInterceptor implements HttpInterceptor {

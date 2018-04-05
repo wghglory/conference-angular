@@ -2,9 +2,9 @@ import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 
-import { EventService } from '../services';
+import { EventService } from '../shared/services';
 
-import { IEvent, ISession } from '../models';
+import { IEvent, ISession } from '../shared/models';
 
 @Component({
   selector: 'app-event-detail',

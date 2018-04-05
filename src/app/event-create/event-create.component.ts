@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { EventService } from '../services';
-import { IEvent } from '../models';
+import { EventService } from '../shared/services';
+import { IEvent } from '../shared/models';
+
+import { LocationValidatorDirective } from './location-validator.directive';
 
 @Component({
   selector: 'app-event-create',
   templateUrl: './event-create.component.html',
   styleUrls: ['./event-create.component.scss'],
+  providers: [LocationValidatorDirective],
 })
 export class EventCreateComponent implements OnInit {
   isDirty = true;

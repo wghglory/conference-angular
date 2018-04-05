@@ -49,6 +49,7 @@ ng g c navbar -d
 * _chapter15_: integration testing
 * _chapter16_: ProductionModule and Tunning rxjs requests
 * _chapter17_: Production AOT
+* [chapter18: Best practice](./docs/chapter18_bestpractice.md)
 
 ---
 

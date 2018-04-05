@@ -2,11 +2,11 @@ import { Component, OnInit, Inject, VERSION } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
-import { IEvent, CommonError } from '../models/';
+import { IEvent, CommonError } from '../shared/models/';
 
-import { EventService } from '../services';
+import { EventService } from '../shared/services';
 
-import { TOASTR_TOKEN, Toastr } from './../shared/toastr.service';
+import { TOASTR_TOKEN, Toastr } from '../core/services/toastr.service';
 
 @Component({
   selector: 'app-event-list',
@@ -74,6 +74,5 @@ export class EventListComponent implements OnInit {
 
     /* way 2: handling error using caller.catch() */
     const result = await this.eventService.getDataPromise(id);
-    console.log(result);
   }
 }

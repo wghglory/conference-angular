@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { restrictedWords } from './restricted-words.validator';
 
-import { ISession } from '../../models';
+import { ISession } from '../../shared/models';
 
 @Component({
   selector: 'app-session-create',

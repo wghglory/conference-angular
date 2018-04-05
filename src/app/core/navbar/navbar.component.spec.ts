@@ -1,13 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SharedSpecModule } from './../shared/shared.module';
-import { ModalModule } from '../shared/modal/modal.module';
+import { FormsModule } from '@angular/forms';
+import { SharedSpecModule } from '../../shared/shared.module';
 
 import { NavbarComponent } from './navbar.component';
 
-import { AuthService } from './../services/auth.service';
-import { EventService } from './../services/event.service';
-import { JQUERY_TOKEN } from '../shared/jquery.service';
+import { JQUERY_TOKEN } from '../services/jquery.service';
+import { AuthService } from '../services/auth.service';
+import { EventService } from '../../shared/services/event.service';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -16,7 +16,7 @@ describe('NavbarComponent', () => {
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [SharedSpecModule, ModalModule],
+        imports: [SharedSpecModule, FormsModule],
         providers: [AuthService, EventService, { provide: JQUERY_TOKEN, useValue: {} }],
         declarations: [NavbarComponent],
       }).compileComponents();
