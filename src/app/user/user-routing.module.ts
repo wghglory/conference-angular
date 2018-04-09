@@ -9,6 +9,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'profile', pathMatch: 'full' },
 ];
 
+export const routedComponents = [ProfileComponent];
+
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],

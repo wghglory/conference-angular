@@ -54,6 +54,16 @@ const routes: Routes = [
   { path: '**', component: NotFoundComponent },
 ];
 
+export const routedComponents = [
+  EventListComponent,
+  EventDetailComponent,
+  EventCreateComponent,
+  SessionCreateComponent,
+  LoginComponent,
+  NotFoundComponent,
+];
+export const routedServices = [EventListResolverService, EventDetailResolverService];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
