@@ -10,6 +10,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { DurationPipe } from './pipes/duration.pipe';
 import { OrderByPipe } from './pipes/order-by.pipe';
+import { InitCapitalPipe } from './pipes/init-capital.pipe';
 import { PositiveNumberDirective } from './validators/positive-number-validator.directive';
 
 import { EventService, VoteService } from './services';
@@ -25,7 +26,7 @@ import { EventService, VoteService } from './services';
     ModalModule,
   ],
   providers: [EventService, VoteService],
-  declarations: [OrderByPipe, DurationPipe, PositiveNumberDirective],
+  declarations: [OrderByPipe, DurationPipe, PositiveNumberDirective, InitCapitalPipe],
 })
 export class SharedModule {
   static forRoot(): ModuleWithProviders {
