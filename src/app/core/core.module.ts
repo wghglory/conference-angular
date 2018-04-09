@@ -14,6 +14,7 @@ import { AddHeaderInterceptor } from './interceptors/interceptor.add-header';
 import { CacheInterceptor } from './interceptors/interceptor.cache';
 import { providers } from './interceptors/interceptor';
 
+import { EntityService } from './services/entity.service';
 import { PlainLoggerService } from './services/logger-plain.service';
 import { LoggerService } from './services/logger.service';
 import { HttpCacheService } from './services/http-cache.service';
@@ -46,6 +47,7 @@ import { SharedModule } from '../shared/shared.module';
   providers: [
     AuthGuard,
     AuthService,
+    EntityService,
     // {
     //   provide: LoggerService,
     //   useValue: {
