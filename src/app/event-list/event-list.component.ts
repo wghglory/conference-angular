@@ -24,6 +24,11 @@ export class EventListComponent implements OnInit {
 
   events: IEvent[];
 
+  // https://angular.io/api/common/NgForOf
+  trackById(index: number, event: IEvent) {
+    return event.id;
+  }
+
   onEventClick(event) {
     this.toastr.success(event.name);
     this.router.navigate(['/events', event.id]);
