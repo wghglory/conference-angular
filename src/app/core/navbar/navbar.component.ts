@@ -18,8 +18,16 @@ export class NavbarComponent implements OnInit {
     public authService: AuthService,
     private router: Router,
     private eventService: EventService,
-  ) {}
+  ) {
+    this.menuItems = [
+      { caption: 'All Events', link: ['/events'] },
+      { caption: 'Create Event', link: ['/events/create'] },
+      { caption: 'Vehicles', link: ['/vehicles'] },
+      { caption: 'Admin', link: ['/admin'] },
+    ];
+  }
 
+  menuItems: any[];
   searchTerm = '';
   foundSessions: ISession[];
 
