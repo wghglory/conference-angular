@@ -1,4 +1,4 @@
-import './rxjs-operators';
+// import './rxjs-operators';
 
 import { NgModule, Optional, SkipSelf, ErrorHandler } from '@angular/core';
 import { CommonModule } from '@angular/common';

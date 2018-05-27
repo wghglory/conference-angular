@@ -6,8 +6,10 @@ import {
   HttpRequest,
   HttpEventType,
 } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+
+import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+
 import { LoggerService } from '../services/logger.service';
 
 @Injectable()

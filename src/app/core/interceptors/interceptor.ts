@@ -1,4 +1,3 @@
-import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 import { Provider, ClassProvider, FactoryProvider, Injectable } from '@angular/core';
 
 import {
@@ -11,7 +10,8 @@ import {
 
 import { Router } from '@angular/router';
 
-import { Observable } from 'rxjs/Observable';
+import { Observable, throwError, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 import { CommonError } from '../../shared/models';
 
@@ -30,14 +30,16 @@ export class ErrorHandlingInterceptor implements HttpInterceptor {
       message: dataError.message,
     });
 
-    return ErrorObservable.create(dataError); // Observable.throw(dataError);
+    return throwError(dataError);
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<any> {
-    return next.handle(req).catch((err: HttpErrorResponse) => {
-      // return Observable.throw(err);
-      return this.handleHttpError(err);
-    });
+    return next.handle(req).pipe(
+      catchError((err: HttpErrorResponse) => {
+        // return throwError(err);
+        return this.handleHttpError(err);
+      }),
+    );
   }
 }
 
@@ -45,28 +47,30 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private router: Router) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    return next.handle(req).catch((event) => {
-      if (event instanceof HttpErrorResponse) {
-        const bounce = [
-          event.status === 401, // unauthorized
-          /\/api\//.test(req.url), // API endpoint to /api/*
-          !/\/api\/login/.test(req.url), // not API calls for login
+    return next.handle(req).pipe(
+      catchError((event) => {
+        if (event instanceof HttpErrorResponse) {
+          const bounce = [
+            event.status === 401, // unauthorized
+            /\/api\//.test(req.url), // API endpoint to /api/*
+            !/\/api\/login/.test(req.url), // not API calls for login
 
-          // not API calls for userInfo, handled in UI level
-          !/\/api\/user-info/.test(req.url),
-        ].every(Boolean);
+            // not API calls for userInfo, handled in UI level
+            !/\/api\/user-info/.test(req.url),
+          ].every(Boolean);
 
-        if (bounce) {
-          this.router.navigateByUrl('/login', {
-            replaceUrl: true,
-          });
+          if (bounce) {
+            this.router.navigateByUrl('/login', {
+              replaceUrl: true,
+            });
 
-          return Observable.empty();
+            return of(null);
+          }
         }
-      }
 
-      return Observable.throw(event);
-    });
+        return throwError(event);
+      }),
+    );
   }
 }
 

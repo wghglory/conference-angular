@@ -1,8 +1,8 @@
-import { catchError } from 'rxjs/operators';
-import { of } from 'rxjs/observable/of';
-import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot } from '@angular/router';
+
+import { catchError } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
 
 import { EventService } from '../shared/services';
 import { CommonError, IEvent } from '../shared/models';

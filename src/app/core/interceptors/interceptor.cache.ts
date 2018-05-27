@@ -6,9 +6,9 @@ import {
   HttpRequest,
   HttpResponse,
 } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+
+import { Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
-import { of } from 'rxjs/observable/of';
 
 import { HttpCacheService } from '../services/http-cache.service';
 

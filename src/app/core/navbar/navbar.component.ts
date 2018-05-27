@@ -1,9 +1,12 @@
-import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { tap } from 'rxjs/operators';
+
 import { ISession } from '../../shared/models';
+
 import { EventService } from '../../shared/services';
+import { AuthService } from './../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -29,9 +32,11 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.authService
       .logout()
-      .do((data) => {
-        this.router.navigate(['/login']);
-      })
+      .pipe(
+        tap((data) => {
+          this.router.navigate(['/login']);
+        }),
+      )
       .subscribe();
   }
 

@@ -1,6 +1,8 @@
 import { MessageService } from './message.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
+import { takeWhile } from 'rxjs/operators';
+
 @Component({
   selector: 'app-message',
   templateUrl: './message.component.html',
@@ -15,7 +17,7 @@ export class MessageComponent implements OnInit, OnDestroy {
   messageClass = 'alert-danger';
 
   ngOnInit() {
-    this.messageService.message$.takeWhile(() => this.alive).subscribe((res) => {
+    this.messageService.message$.pipe(takeWhile(() => this.alive)).subscribe((res) => {
       this.message = res.message;
       this.messageClass = res.messageClass;
       this.hasClose = res.hasClose;

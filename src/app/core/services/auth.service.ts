@@ -1,6 +1,8 @@
-import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
+import { tap, catchError } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
 
 import { IUser } from '../models/user.model';
 
@@ -15,16 +17,16 @@ export class AuthService {
   }
 
   loginUser(username: string, password: string) {
-    return this.http
-      .post('/api/login', { username, password })
-      .do((res: IUser) => {
+    return this.http.post('/api/login', { username, password }).pipe(
+      tap((res: IUser) => {
         if (res) {
           this.currentUser = res;
         }
-      })
-      .catch((err) => {
-        return Observable.of(false);
-      });
+      }),
+      catchError((err) => {
+        return of(false);
+      }),
+    );
   }
 
   updateCurrentUser(firstName: string, lastName: string) {

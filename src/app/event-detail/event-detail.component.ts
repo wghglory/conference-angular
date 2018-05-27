@@ -1,6 +1,7 @@
-import { Observable } from 'rxjs/Observable';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+
+import { Observable, of } from 'rxjs';
 
 import { EventService } from '../shared/services';
 
@@ -70,7 +71,7 @@ export class EventDetailComponent implements OnInit {
 
     // 4. use resolver and data watch
     this.route.data.forEach((data) => {
-      this.event$ = Observable.of(data['event']); // In this case, better not use async pipe
+      this.event$ = of(data['event']); // In this case, better not use async pipe
 
       this.event = data['event'];
       this.addMode = false;
