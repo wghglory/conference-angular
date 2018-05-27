@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+// material design
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule, routedComponents, routedServices } from './app-routing.module';
@@ -28,7 +31,7 @@ import { LocationValidatorDirective } from './event-create/location-validator.di
     VoteComponent,
     LocationValidatorDirective,
   ],
-  imports: [BrowserModule, CoreModule, SharedModule, AppRoutingModule],
+  imports: [BrowserModule, BrowserAnimationsModule, CoreModule, SharedModule, AppRoutingModule],
   providers: [
     routedServices,
 
