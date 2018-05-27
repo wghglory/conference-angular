@@ -3,7 +3,7 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SpinnerModule } from './spinner/spinner.module';
 import { CollapsibleCardModule } from './collapsible-card/collapsible-card.module';
-import { ModalModule } from './modal/modal.module';
+import { BootstrapModalModule } from './modal-bootstrap/modal-bootstrap.module';
 
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -16,14 +16,14 @@ import { PositiveNumberDirective } from './validators/positive-number-validator.
 import { EventService, VoteService } from './services';
 
 @NgModule({
-  imports: [CommonModule, SpinnerModule, CollapsibleCardModule, ModalModule],
+  imports: [CommonModule, SpinnerModule, CollapsibleCardModule, BootstrapModalModule],
   exports: [
     CommonModule,
     OrderByPipe,
     DurationPipe,
     SpinnerModule,
     CollapsibleCardModule,
-    ModalModule,
+    BootstrapModalModule,
   ],
   providers: [EventService, VoteService],
   declarations: [OrderByPipe, DurationPipe, PositiveNumberDirective, InitCapitalPipe],

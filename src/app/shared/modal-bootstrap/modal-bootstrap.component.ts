@@ -2,11 +2,11 @@ import { Component, OnInit, Input, ElementRef, ViewChild, Inject } from '@angula
 import { JQUERY_TOKEN } from '../../core/services/jquery.service';
 
 @Component({
-  selector: 'app-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.scss'],
+  selector: 'app-modal-bootstrap',
+  templateUrl: './modal-bootstrap.component.html',
+  styleUrls: ['./modal-bootstrap.component.scss'],
 })
-export class ModalComponent implements OnInit {
+export class ModalBootstrapComponent implements OnInit {
   @Input() title: string;
   @Input() elementId: string;
   @ViewChild('modalContainer') containerEl: ElementRef;

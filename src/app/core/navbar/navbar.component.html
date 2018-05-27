@@ -101,7 +101,7 @@
 </nav>
 
 <!-- content projection for modal window when clicking search -->
-<app-modal closeOnBodyClick="true"
+<app-modal-bootstrap closeOnBodyClick="true"
            title="Matching Sessions"
            elementId="searchResult">
   <div class="list-group">
@@ -109,4 +109,4 @@
        *ngFor="let session of foundSessions"
        [routerLink]="['/events', session.eventId]">{{session.name}}</a>
   </div>
-</app-modal>
+</app-modal-bootstrap>
