@@ -7,6 +7,7 @@ import { IEvent, CommonError } from '../shared/models/';
 import { EventService } from '../shared/services';
 
 import { TOASTR_TOKEN, Toastr } from '../core/services/toastr.service';
+import { ToastrService } from '../core/toastr/toastr.service';
 
 @Component({
   selector: 'app-event-list',
@@ -17,6 +18,7 @@ export class EventListComponent implements OnInit {
   constructor(
     private eventService: EventService,
     @Inject(TOASTR_TOKEN) private toastr: Toastr,
+    private toastrService: ToastrService,
     private route: ActivatedRoute,
     private router: Router,
     private title: Title,
@@ -31,6 +33,7 @@ export class EventListComponent implements OnInit {
 
   onEventClick(event) {
     this.toastr.success(event.name);
+    this.toastrService.activate(event.name);
     this.router.navigate(['/events', event.id]);
   }
 

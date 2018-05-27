@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MessageModule } from './message/message.module';
+import { ToastrModule } from './toastr/toastr.module';
+import { SharedModule } from '../shared/shared.module';
 
 import { throwIfAlreadyLoaded } from './services/module-duplicate-import.guard';
 
@@ -32,7 +34,6 @@ export const jquery: any = window['$'];
 // import '@clr/icons/shapes/all-shapes';
 
 import { NavbarComponent } from './navbar/navbar.component';
-import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -41,7 +42,6 @@ import { SharedModule } from '../shared/shared.module';
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule,
-    MessageModule,
     SharedModule,
   ],
   providers: [
@@ -75,6 +75,7 @@ import { SharedModule } from '../shared/shared.module';
     HttpClientModule,
     RouterModule,
     MessageModule,
+    ToastrModule,
     NavbarComponent,
     // ClarityModule
   ],
