@@ -1,9 +1,13 @@
 <!-- Make this card reusable and collapsible  -->
 
-<div class="row mb-3" *ngFor="let session of visibleSessions">
+<div class="row mb-3"
+     *ngFor="let session of visibleSessions">
   <!-- <div class="row mb-3" *ngFor="let session of visibleSessions | orderBy:sortBy"> -->
-  <div class="col-md-2 bg-secondary" *ngIf="authService.isAuthenticated">
-    <app-vote (vote)="toggleVote(session)" [count]="session.voters.length" [voted]="userHasVoted(session)"></app-vote>
+  <div class="col-md-2 bg-secondary"
+       *ngIf="authService.isAuthenticated">
+    <app-vote (vote)="toggleVote(session)"
+              [count]="session.voters.length"
+              [voted]="userHasVoted(session)"></app-vote>
   </div>
 
   <!-- <div class="col-md-10 card bg-secondary mb-3">
@@ -18,13 +22,16 @@
 
   <div class="col-md-10">
     <app-collapsible-card [classes]="'bg-secondary'">
-      <h4 class="card-header" card-header>
+      <h4 class="card-header"
+          card-header>
         {{session.name}}
         <span *ngIf="session.voters.length > 3">
-          <i class="fas fa-fire" style="color:red;"></i>
+          <i class="fas fa-fire"
+             style="color:red;"></i>
         </span>
       </h4>
-      <div class="card-body" card-body>
+      <div class="card-body"
+           card-body>
         <h5 class="card-title">{{session.presenter}}</h5>
         <div class="card-text">Duration: {{session.duration | duration}}</div>
         <div class="card-text">Level: {{session.level}}</div>

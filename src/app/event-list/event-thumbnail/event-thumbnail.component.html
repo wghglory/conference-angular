@@ -7,7 +7,9 @@
       <div>Price: ${{event?.price}}</div>
       <div>Date: {{event?.date}}</div>
 
-      <div [ngClass]="getClasses()" [ngStyle]="getStyles()" [ngSwitch]="event?.time">
+      <div [ngClass]="getClasses()"
+           [ngStyle]="getStyles()"
+           [ngSwitch]="event?.time">
         Time: {{event?.time}}
         <span *ngSwitchCase="'8:00 am'">(Early Start)</span>
         <span *ngSwitchCase="'10:00 am'">(Late Start)</span>

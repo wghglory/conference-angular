@@ -36,8 +36,11 @@
 <!-- v2: Use resolver for data retrieving, app.component is responsible for loading -->
 
 <!-- <div class="container" *ngIf="event$ | async as event;"> -->
-<div class="container" *ngIf="event">
-  <img [src]="event.imageUrl" [alt]="event.name" class="event-img">
+<div class="container"
+     *ngIf="event">
+  <img [src]="event.imageUrl"
+       [alt]="event.name"
+       class="event-img">
 
   <div class="row pb-3">
     <div class="col-md-11">
@@ -71,22 +74,42 @@
     </div>
     <div class="col-md-10">
       <div class="btn-group">
-        <button class="btn btn-info" [class.active]="sortBy==='name'" (click)="sortBy='name'">By Name</button>
-        <button class="btn btn-info" [class.active]="sortBy==='votes'" (click)="sortBy='votes'">By Votes</button>
+        <button class="btn btn-info"
+                [class.active]="sortBy==='name'"
+                (click)="sortBy='name'">By Name</button>
+        <button class="btn btn-info"
+                [class.active]="sortBy==='votes'"
+                (click)="sortBy='votes'">By Votes</button>
       </div>
 
       <div class="btn-group">
-        <button class="btn btn-info" [class.active]="filterBy==='all'" (click)="filterBy='all'">All</button>
-        <button class="btn btn-info" [class.active]="filterBy==='beginner'" (click)="filterBy='beginner'">Beginner</button>
-        <button class="btn btn-info" [class.active]="filterBy==='intermediate'" (click)="filterBy='intermediate'">Intermediate</button>
-        <button class="btn btn-info" [class.active]="filterBy==='advanced'" (click)="filterBy='advanced'">Advanced</button>
+        <button class="btn btn-info"
+                [class.active]="filterBy==='all'"
+                (click)="filterBy='all'">All</button>
+        <button class="btn btn-info"
+                [class.active]="filterBy==='beginner'"
+                (click)="filterBy='beginner'">Beginner</button>
+        <button class="btn btn-info"
+                [class.active]="filterBy==='intermediate'"
+                (click)="filterBy='intermediate'">Intermediate</button>
+        <button class="btn btn-info"
+                [class.active]="filterBy==='advanced'"
+                (click)="filterBy='advanced'">Advanced</button>
       </div>
 
-      <button type="button" class="float-right btn btn-outline-warning" (click)="addSession()">Add Session</button>
+      <button type="button"
+              class="float-right btn btn-outline-warning"
+              (click)="addSession()">Add Session</button>
     </div>
   </div>
 
-  <app-session-list [eventId]="event.id" [sortBy]="sortBy" [filterBy]="filterBy" *ngIf="!addMode" [sessions]="event.sessions"></app-session-list>
-  <app-session-create *ngIf="addMode" (saveNewSession)="saveNewSession($event)" (cancelAddSession)="cancelAddSession()"></app-session-create>
+  <app-session-list [eventId]="event.id"
+                    [sortBy]="sortBy"
+                    [filterBy]="filterBy"
+                    *ngIf="!addMode"
+                    [sessions]="event.sessions"></app-session-list>
+  <app-session-create *ngIf="addMode"
+                      (saveNewSession)="saveNewSession($event)"
+                      (cancelAddSession)="cancelAddSession()"></app-session-create>
 
 </div>

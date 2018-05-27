@@ -1,27 +1,43 @@
 <h1>Login</h1>
 <hr>
 <div class="col-md-4">
-  <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" autocomplete="off"
-    novalidate>
+  <form #loginForm="ngForm"
+        (ngSubmit)="login(loginForm.value)"
+        autocomplete="off"
+        novalidate>
     <div class="form-group">
       <label for="username">User Name:</label>
       <em *ngIf="loginForm.controls.username?.invalid && (loginForm.controls.username?.touched || mouseoverLogin)">Required</em>
-      <input required (ngModel)="username" name="username" id="username" type="text" class="form-control"
-        placeholder="test" />
+      <input required
+             (ngModel)="username"
+             name="username"
+             id="username"
+             type="text"
+             class="form-control"
+             placeholder="test" />
     </div>
     <div class="form-group">
       <label for="password">Password:</label>
       <!-- <em *ngIf="loginForm.controls.password?.invalid && (loginForm.controls.password?.touched || mouseoverLogin)">Required</em> -->
       <em *ngIf="passwordVar?.invalid && (passwordVar?.touched || mouseoverLogin)">Required</em>
-      <input #passwordVar="ngModel" required (ngModel)="password" name="password" id="password"
-        type="password" class="form-control" />
+      <input #passwordVar="ngModel"
+             required
+             (ngModel)="password"
+             name="password"
+             id="password"
+             type="password"
+             class="form-control" />
     </div>
-    <span (mouseenter)="mouseoverLogin=true" (mouseleave)="mouseoverLogin=false">
-      <button [disabled]="loginForm.invalid" type="submit" class="btn btn-warning">Login</button>
+    <span (mouseenter)="mouseoverLogin=true"
+          (mouseleave)="mouseoverLogin=false">
+      <button [disabled]="loginForm.invalid"
+              type="submit"
+              class="btn btn-warning">Login</button>
     </span>
   </form>
   <br>
-  <div *ngIf="loginInvalid" class="alert alert-danger">Invalid login info</div>
+  <div *ngIf="loginInvalid"
+       class="alert alert-danger">Invalid login info</div>
 </div>
 
 <!-- hover on the login button, display the reason if user is not allowed login -->

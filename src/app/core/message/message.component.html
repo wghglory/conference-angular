@@ -1,12 +1,22 @@
-<div [hidden]="message?.length === 0" class="alert alert-module-level" [ngClass]="messageClass">
+<div [hidden]="message?.length === 0"
+     class="alert alert-module-level"
+     [ngClass]="messageClass">
   <div class="alert-items">
     <div class="alert-item static">
       <div class="alert-icon-wrapper">
         <ng-container [ngSwitch]="messageClass">
-          <span class="alert-icon" shape="check-circle" *ngSwitchCase="'alert-success'"></span>
-          <span class="alert-icon" shape="error-standard" *ngSwitchCase="'alert-danger'"></span>
-          <span class="alert-icon" shape="info-circle" *ngSwitchCase="'alert-info'"></span>
-          <span class="alert-icon" shape="exclamation-triangle" *ngSwitchCase="'alert-warning'"></span>
+          <span class="alert-icon"
+                shape="check-circle"
+                *ngSwitchCase="'alert-success'"></span>
+          <span class="alert-icon"
+                shape="error-standard"
+                *ngSwitchCase="'alert-danger'"></span>
+          <span class="alert-icon"
+                shape="info-circle"
+                *ngSwitchCase="'alert-info'"></span>
+          <span class="alert-icon"
+                shape="exclamation-triangle"
+                *ngSwitchCase="'alert-warning'"></span>
         </ng-container>
       </div>
       <div class="alert-text">
@@ -14,7 +24,12 @@
       </div>
     </div>
   </div>
-  <button *ngIf="hasClose" type="button" class="close" aria-label="Close" (click)="onClose()">
-    <span aria-hidden="true" shape="close"></span>
+  <button *ngIf="hasClose"
+          type="button"
+          class="close"
+          aria-label="Close"
+          (click)="onClose()">
+    <span aria-hidden="true"
+          shape="close"></span>
   </button>
 </div>
