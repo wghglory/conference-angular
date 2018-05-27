@@ -7,6 +7,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MessageModule } from './message/message.module';
 import { ToastrModule } from './toastr/toastr.module';
+import { ModalModule } from './modal/modal.module';
 import { SharedModule } from '../shared/shared.module';
 
 import { throwIfAlreadyLoaded } from './services/module-duplicate-import.guard';
@@ -76,6 +77,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     RouterModule,
     MessageModule,
     ToastrModule,
+    ModalModule,
     NavbarComponent,
     // ClarityModule
   ],

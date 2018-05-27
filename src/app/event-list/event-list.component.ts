@@ -8,6 +8,7 @@ import { EventService } from '../shared/services';
 
 import { TOASTR_TOKEN, Toastr } from '../core/services/toastr.service';
 import { ToastrService } from '../core/toastr/toastr.service';
+import { ModalService } from '../core/modal/modal.service';
 
 @Component({
   selector: 'app-event-list',
@@ -19,6 +20,7 @@ export class EventListComponent implements OnInit {
     private eventService: EventService,
     @Inject(TOASTR_TOKEN) private toastr: Toastr,
     private toastrService: ToastrService,
+    private modalService: ModalService,
     private route: ActivatedRoute,
     private router: Router,
     private title: Title,
@@ -32,8 +34,18 @@ export class EventListComponent implements OnInit {
   }
 
   onEventClick(event) {
+    // self-created unique global modal
+    this.modalService
+      .activate(event.name, (event.location && event.location.address) || event.onlineUrl)
+      .then((res) => {
+        console.log(res);
+      });
+    // 3rd party
     this.toastr.success(event.name);
+
+    // self-created
     this.toastrService.activate(event.name);
+
     this.router.navigate(['/events', event.id]);
   }
 

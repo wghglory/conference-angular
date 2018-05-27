@@ -1,6 +1,11 @@
 <app-navbar></app-navbar>
 
+<!-- global message -->
 <app-message></app-message>
+
+<div class="container py-4">
+  <router-outlet></router-outlet>
+</div>
 
 <app-spinner *ngIf="loading"
              [fill]="'#ffc107'"
@@ -10,6 +15,5 @@
 
 <app-toastr></app-toastr>
 
-<div class="container py-4">
-  <router-outlet></router-outlet>
-</div>
+<!-- global unique modal -->
+<app-modal></app-modal>

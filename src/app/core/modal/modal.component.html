@@ -1,0 +1,15 @@
+<div class="dialog-container"
+     tabindex="-1"
+     #globalModal>
+  <div class="dialog-frame">
+    <h5 class="dialog-title">{{title}}</h5>
+    <p class="dialog-body">{{message}}</p>
+    <div class="dialog-button-bar">
+      <button #cancelButton
+              class="btn btn-secondary"
+              data-dismiss="modal">{{cancelText}}</button>
+      <button #okButton
+              class="btn btn-primary">{{okText}}</button>
+    </div>
+  </div>
+</div>
