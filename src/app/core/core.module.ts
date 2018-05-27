@@ -25,6 +25,7 @@ import { HttpCacheServiceFactory } from './services/http-cache.factory.service';
 import { CommonErrorHandlerService } from './services/error-handler.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './services/auth.guard';
+import { CanDeactivateGuard } from './services/deactivate.guard';
 
 import { TOASTR_TOKEN, Toastr } from './services/toastr.service';
 import { JQUERY_TOKEN } from './services/jquery.service';
@@ -47,6 +48,7 @@ import { NavbarComponent } from './navbar/navbar.component';
   ],
   providers: [
     AuthGuard,
+    CanDeactivateGuard,
     AuthService,
     EntityService,
     // {

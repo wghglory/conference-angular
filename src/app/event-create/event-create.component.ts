@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { CanComponentDeactivate } from './../core/services/deactivate.guard';
+
 import { EventService } from '../shared/services';
 import { IEvent } from '../shared/models';
 
@@ -12,7 +14,8 @@ import { LocationValidatorDirective } from './location-validator.directive';
   styleUrls: ['./event-create.component.scss'],
   providers: [LocationValidatorDirective],
 })
-export class EventCreateComponent implements OnInit {
+export class EventCreateComponent implements OnInit, CanComponentDeactivate {
+  // in real scenario, use entity service's propertiesDiffer to determine isDirty
   isDirty = true;
 
   // (ngModel) one-way binding, but AOT builds need these props
@@ -28,6 +31,13 @@ export class EventCreateComponent implements OnInit {
 
   // avoid writing all props, template ngModel=event.prop
   event: IEvent;
+
+  get canDeactivate() {
+    if (this.isDirty) {
+      return confirm(`you haven't save the event. Are you sure to cancel?`);
+    }
+    return true;
+  }
 
   constructor(private router: Router, private eventService: EventService) {}
 

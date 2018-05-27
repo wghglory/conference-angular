@@ -11,6 +11,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 import { UserModule } from './user/user.module';
 
+import { CanDeactivateGuard } from './core/services/deactivate.guard';
 import { AuthGuard } from './core/services/auth.guard';
 import { EventListResolverService } from './event-list/event-list-resolver.service';
 import { EventDetailResolverService } from './event-detail/event-detail-resolver.service';
@@ -25,7 +26,8 @@ const routes: Routes = [
   {
     path: 'events/create',
     component: EventCreateComponent,
-    canDeactivate: ['canDeactivateCreateEvent'],
+    canDeactivate: [CanDeactivateGuard],
+    // canDeactivate: ['canDeactivateCreateEvent'],
     // Guarding Against Route De-activation using function, canDeactivateCreateEvent is provider name which points to a function
   },
   {

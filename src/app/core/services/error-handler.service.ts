@@ -10,6 +10,8 @@ export class CommonErrorHandlerService implements ErrorHandler {
   constructor(private messageService: MessageService) {}
 
   handleError(err: any): void {
+    console.log(`-------from error-handler:-------`);
+    console.log(err);
     const customError = new CommonError();
     customError.code = err.error.code || (<HttpErrorResponse>err).status;
     customError.message = err.error.message || (<HttpErrorResponse>err).message;
